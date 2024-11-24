@@ -190,7 +190,7 @@ Monitor_output.txt
 
 Images: 
 
-Images taken during the sketch was running are in the folder ```images```.
+Images, mostly edited screenshots, are in the folder: ```images``` and its subfolder: ```Google_Cloud_Service_account_and_API_key```.
 
 
 Links to product pages of the hardware used:
