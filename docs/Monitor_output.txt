@@ -5,7 +5,7 @@ Board: M5Stack M5Dial
 Arduino IDE: v2.3.3.
 
 Sketch name: 
-M5Dial_Timezones_M5Echo_RFID_data_to_Google.ino 
+M5Dial_Timezones_data_to_Google.ino 
 
 Using Google Apps Script Script: "M5Dial_Timezones", deployment nr: 54
 which fills Google Sheets spreadsheet: "M5Dial_Timezones_SNTP_sync_times".
