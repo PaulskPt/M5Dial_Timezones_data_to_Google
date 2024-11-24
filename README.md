@@ -41,7 +41,7 @@ Each time zone sequence of four displays is repeated for 25 seconds. This repeat
 
 Data to Google:
 
-New in this version is that we added the functionality to send some data to a Google Sheets Spreadsheet.
+New in this version is that I added the functionality to send some data to a Google Sheets Spreadsheet.
 The following data will be sent: 
 ```
 1) a datetime stamp in GMT time;
