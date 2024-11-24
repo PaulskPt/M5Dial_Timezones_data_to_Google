@@ -46,10 +46,11 @@ The following data will be sent:
 ```
 1) a datetime stamp in GMT time;
 2) SNTP sync time (in epoch value);
-3) difference time, in seconds, between the last SNTP sync time moment and the current;
+3) difference time, in seconds, between the last SNTP sync time (epoch) moment and the current;
 4) an index number, ranging from 0 to 23;
 5) an integer value indicating the state of the display: "1" = display on, "0" = display off;
-6) value of FreeHeap memory in bytes; 7) name of the device that sent the data, in our case "M5Dial".
+6) value of FreeHeap memory in bytes;
+7) name of the device that sent the data, in our case "M5Dial".
 ```
 To acomplish this, the data is first sent through a ```HTML POST``` request to a Google Apps Scripts script which analyses the data and then adds the data to the Google Sheets spreadsheet. Average it takes 5 seconds between the moment the sketch sends the HTT POST request and the moment that the data sent appears in the spreadsheet.
 
