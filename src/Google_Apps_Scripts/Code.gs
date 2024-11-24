@@ -21,7 +21,7 @@ function doPost(e) {
     if (params == undefined) {
       result = 'No Parameters';
     } else {
-      // Spreadsheet location my_drive///M5Dial_Timezones_SNTP_sync_times
+      // Spreadsheet location my_drive/M5Dial_Timezones_SNTP_sync_times
       var id = '<Spreadsheet_ID>'; // Spreadsheet ID
       var sheet = SpreadsheetApp.openById(id).getActiveSheet();
       var newRow = sheet.getLastRow() + 1;
