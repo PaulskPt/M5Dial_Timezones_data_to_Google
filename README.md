@@ -114,9 +114,7 @@ in the following map:
 
 M5Dial Debug output:
 
-Because of memory limitations all of the if (my_debug) {...} blocks were removed.
-Only in function time_sync_notification_cb() there is used a preprocessor directive ```DEBUG_OUTPUT```. (In M5Dial version 2),
-defined in line 52.
+Because of memory limitations most of the if (my_debug) {...} blocks were removed.
 
 File secret.h:
 
