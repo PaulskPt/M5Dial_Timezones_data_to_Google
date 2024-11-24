@@ -83,7 +83,7 @@ time_t SyncTimes[HOURS][3];
 
 int SyncTimesIndex = 0; // just for test. It should be 0
 
-bool my_debug = false;
+// bool my_debug = false;
 bool lStart = true;
 bool display_on = true;
 bool sync_notification_triggered_at_start = false;
