@@ -1,0 +1,1303 @@
+Thursday 2024-11-22 19h10 utc
+
+Board: M5Stack M5Dial
+
+Arduino IDE: v2.3.3.
+
+Sketch name: 
+M5Dial_Timezones_M5Echo_RFID_data_to_Google.ino 
+
+Using Google Apps Script Script: "M5Dial_Timezones", deployment nr: 54
+which fills Google Sheets spreadsheet: "M5Dial_Timezones_SNTP_sync_times".
+
+
+-----------------------
+Compile & Build report:
+-----------------------
+
+Sketch uses 1188541 bytes (90%) of program storage space. Maximum is 1310720 bytes.
+Global variables use 53464 bytes (16%) of dynamic memory, leaving 274216 bytes for local variables. Maximum is 327680 bytes.
+esptool.py v4.5.1
+Serial port COM6
+Connecting...
+Chip is ESP32-S3 (revision v0.2)
+Features: WiFi, BLE
+Crystal is 40MHz
+MAC: 24:58:7c:53:c2:c4
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 921600
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00000000 to 0x00003fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+Flash will be erased from 0x0000e000 to 0x0000ffff...
+Flash will be erased from 0x00010000 to 0x00132fff...
+Compressed 15104 bytes to 10401...
+Writing at 0x00000000... (100 %)
+Wrote 15104 bytes (10401 compressed) at 0x00000000 in 0.3 seconds (effective 461.3 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 146...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (146 compressed) at 0x00008000 in 0.0 seconds (effective 503.4 kbit/s)...
+Hash of data verified.
+Compressed 8192 bytes to 47...
+Writing at 0x0000e000... (100 %)
+Wrote 8192 bytes (47 compressed) at 0x0000e000 in 0.1 seconds (effective 760.0 kbit/s)...
+Hash of data verified.
+Compressed 1188912 bytes to 720728...
+Writing at 0x00010000... (2 %)
+Writing at 0x00017221... (4 %)
+Writing at 0x00022ffd... (6 %)
+Writing at 0x0002df31... (9 %)
+Writing at 0x0003bd25... (11 %)
+Writing at 0x0005088e... (13 %)
+Writing at 0x00056005... (15 %)
+Writing at 0x0005b7c0... (18 %)
+Writing at 0x000612a4... (20 %)
+Writing at 0x00066aea... (22 %)
+Writing at 0x0006c4d9... (25 %)
+Writing at 0x00071aaa... (27 %)
+Writing at 0x000772ca... (29 %)
+Writing at 0x0007c3f3... (31 %)
+Writing at 0x00081353... (34 %)
+Writing at 0x00086326... (36 %)
+Writing at 0x0008b30c... (38 %)
+Writing at 0x0009023d... (40 %)
+Writing at 0x00095985... (43 %)
+Writing at 0x0009a9a8... (45 %)
+Writing at 0x0009f971... (47 %)
+Writing at 0x000a47ec... (50 %)
+Writing at 0x000aa40e... (52 %)
+Writing at 0x000af740... (54 %)
+Writing at 0x000b4a1c... (56 %)
+Writing at 0x000b9a2f... (59 %)
+Writing at 0x000be9d7... (61 %)
+Writing at 0x000c3a98... (63 %)
+Writing at 0x000c8cf6... (65 %)
+Writing at 0x000ce16e... (68 %)
+Writing at 0x000d3439... (70 %)
+Writing at 0x000d95d4... (72 %)
+Writing at 0x000dedcd... (75 %)
+Writing at 0x000e5a03... (77 %)
+Writing at 0x000eed7c... (79 %)
+Writing at 0x000f745a... (81 %)
+Writing at 0x000fc8d0... (84 %)
+Writing at 0x00103260... (86 %)
+Writing at 0x0010ac82... (88 %)
+Writing at 0x001140f9... (90 %)
+Writing at 0x0011b428... (93 %)
+Writing at 0x00121695... (95 %)
+Writing at 0x00126f2b... (97 %)
+Writing at 0x0012c3ed... (100 %)
+Wrote 1188912 bytes (720728 compressed) at 0x00010000 in 8.5 seconds (effective 1115.2 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...
+
+
+---------------
+Monitor output:
+---------------
+
+M5Stack M5Dial Timezones, M5Atom Echo, RFID and data to Google test.
+
+WiFi Connected
+initializing SNTP
+running on core 1
+SNTP sync interval: 5 minutes
+loop():  loopnr:   2, xPortGetFreeHeapSize(): 267792 bytes
+
+RTC updated with SNTP datetime
+handle_request(): entry xPortGetFreeHeapSize(): 267792 bytes  <<<=== This value will be send as part of the data to the spreadsheet
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-22T19:10:54Z","sync_time":1732302654,"diff_t":0,"index":0,"display":1,"f_heap":267792,"id":"M5Dial"}"}
+HTTP Response code: 302
+handle_request(): exit xPortGetFreeHeapSize(): 267508 bytes
+handle_request(): heapSize difference (lost) 284 bytes
+loop():  loopnr:   4, xPortGetFreeHeapSize(): 267540 bytes  <<<=== from here to/including loop 60 are 29 lines
+loop():  loopnr:   6, xPortGetFreeHeapSize(): 267540 bytes
+loop():  loopnr:   8, xPortGetFreeHeapSize(): 267540 bytes
+loop():  loopnr:  10, xPortGetFreeHeapSize(): 267540 bytes
+loop():  loopnr:  12, xPortGetFreeHeapSize(): 267564 bytes
+loop():  loopnr:  14, xPortGetFreeHeapSize(): 267564 bytes
+loop():  loopnr:  16, xPortGetFreeHeapSize(): 267564 bytes
+loop():  loopnr:  18, xPortGetFreeHeapSize(): 267488 bytes
+loop():  loopnr:  20, xPortGetFreeHeapSize(): 267520 bytes
+loop():  loopnr:  22, xPortGetFreeHeapSize(): 267472 bytes
+loop():  loopnr:  24, xPortGetFreeHeapSize(): 267472 bytes
+loop():  loopnr:  26, xPortGetFreeHeapSize(): 267472 bytes
+loop():  loopnr:  28, xPortGetFreeHeapSize(): 267500 bytes
+loop():  loopnr:  30, xPortGetFreeHeapSize(): 267500 bytes
+loop():  loopnr:  32, xPortGetFreeHeapSize(): 267420 bytes
+loop():  loopnr:  34, xPortGetFreeHeapSize(): 267420 bytes
+loop():  loopnr:  36, xPortGetFreeHeapSize(): 267420 bytes
+loop():  loopnr:  38, xPortGetFreeHeapSize(): 267428 bytes
+loop():  loopnr:  40, xPortGetFreeHeapSize(): 267428 bytes
+loop():  loopnr:  42, xPortGetFreeHeapSize(): 267428 bytes
+loop():  loopnr:  44, xPortGetFreeHeapSize(): 267428 bytes
+loop():  loopnr:  46, xPortGetFreeHeapSize(): 267428 bytes
+loop():  loopnr:  48, xPortGetFreeHeapSize(): 267452 bytes
+loop():  loopnr:  50, xPortGetFreeHeapSize(): 267452 bytes
+loop():  loopnr:  52, xPortGetFreeHeapSize(): 267376 bytes
+loop():  loopnr:  54, xPortGetFreeHeapSize(): 267376 bytes
+loop():  loopnr:  56, xPortGetFreeHeapSize(): 267376 bytes
+loop():  loopnr:  58, xPortGetFreeHeapSize(): 267328 bytes
+loop():  loopnr:  60, xPortGetFreeHeapSize(): 267292 bytes  <<<=== from loop 4 until/including loop 60, leaked (lost) 248 bytes 
+
+RTC updated with SNTP datetime
+handle_request(): entry xPortGetFreeHeapSize(): 267296 bytes
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-22T19:15:57Z","sync_time":1732302957,"diff_t":303,"index":1,"display":1,"f_heap":267292,"id":"M5Dial"}"}
+HTTP Response code: 302
+handle_request(): exit xPortGetFreeHeapSize(): 267256 bytes
+handle_request(): heapSize difference (lost) 40 bytes
+loop():  loopnr:  62, xPortGetFreeHeapSize(): 267320 bytes  <<<=== from here to/including loop 118 are 29 lines
+loop():  loopnr:  64, xPortGetFreeHeapSize(): 267320 bytes
+loop():  loopnr:  66, xPortGetFreeHeapSize(): 267320 bytes
+loop():  loopnr:  68, xPortGetFreeHeapSize(): 267240 bytes
+loop():  loopnr:  70, xPortGetFreeHeapSize(): 267240 bytes
+loop():  loopnr:  72, xPortGetFreeHeapSize(): 267248 bytes
+loop():  loopnr:  74, xPortGetFreeHeapSize(): 267248 bytes
+loop():  loopnr:  76, xPortGetFreeHeapSize(): 267248 bytes
+loop():  loopnr:  78, xPortGetFreeHeapSize(): 267248 bytes
+loop():  loopnr:  80, xPortGetFreeHeapSize(): 267248 bytes
+loop():  loopnr:  82, xPortGetFreeHeapSize(): 267272 bytes
+loop():  loopnr:  84, xPortGetFreeHeapSize(): 267272 bytes
+loop():  loopnr:  86, xPortGetFreeHeapSize(): 267272 bytes
+loop():  loopnr:  88, xPortGetFreeHeapSize(): 267196 bytes
+loop():  loopnr:  90, xPortGetFreeHeapSize(): 267196 bytes
+loop():  loopnr:  92, xPortGetFreeHeapSize(): 267148 bytes
+loop():  loopnr:  94, xPortGetFreeHeapSize(): 267148 bytes
+loop():  loopnr:  96, xPortGetFreeHeapSize(): 267148 bytes
+loop():  loopnr:  98, xPortGetFreeHeapSize(): 267176 bytes
+loop():  loopnr: 100, xPortGetFreeHeapSize(): 267176 bytes
+loop():  loopnr: 102, xPortGetFreeHeapSize(): 267096 bytes
+loop():  loopnr: 104, xPortGetFreeHeapSize(): 267096 bytes
+loop():  loopnr: 106, xPortGetFreeHeapSize(): 267096 bytes
+loop():  loopnr: 108, xPortGetFreeHeapSize(): 267104 bytes
+loop():  loopnr: 110, xPortGetFreeHeapSize(): 267136 bytes
+loop():  loopnr: 112, xPortGetFreeHeapSize(): 267136 bytes
+loop():  loopnr: 114, xPortGetFreeHeapSize(): 267136 bytes
+loop():  loopnr: 116, xPortGetFreeHeapSize(): 267136 bytes
+loop():  loopnr: 118, xPortGetFreeHeapSize(): 267160 bytes  <<<=== from loop 62 until/including loop 118, leaked (lost) 160 bytes 
+
+RTC updated with SNTP datetime
+handle_request(): entry xPortGetFreeHeapSize(): 267096 bytes
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-22T19:21:03Z","sync_time":1732303263,"diff_t":306,"index":2,"display":1,"f_heap":267096,"id":"M5Dial"}"}
+HTTP Response code: 302
+handle_request(): exit xPortGetFreeHeapSize(): 267084 bytes
+handle_request(): heapSize difference (lost) 12 bytes
+loop():  loopnr: 120, xPortGetFreeHeapSize(): 267128 bytes  <<<=== from here to/including loop 176 are 29 lines
+loop():  loopnr: 122, xPortGetFreeHeapSize(): 267052 bytes
+loop():  loopnr: 124, xPortGetFreeHeapSize(): 267052 bytes
+loop():  loopnr: 126, xPortGetFreeHeapSize(): 267052 bytes
+loop():  loopnr: 128, xPortGetFreeHeapSize(): 267004 bytes
+loop():  loopnr: 130, xPortGetFreeHeapSize(): 267004 bytes
+loop():  loopnr: 132, xPortGetFreeHeapSize(): 267032 bytes
+loop():  loopnr: 134, xPortGetFreeHeapSize(): 267032 bytes
+loop():  loopnr: 136, xPortGetFreeHeapSize(): 267032 bytes
+loop():  loopnr: 138, xPortGetFreeHeapSize(): 266952 bytes
+loop():  loopnr: 140, xPortGetFreeHeapSize(): 266952 bytes
+loop():  loopnr: 142, xPortGetFreeHeapSize(): 266992 bytes
+loop():  loopnr: 144, xPortGetFreeHeapSize(): 266992 bytes
+loop():  loopnr: 146, xPortGetFreeHeapSize(): 266992 bytes
+loop():  loopnr: 148, xPortGetFreeHeapSize(): 266992 bytes
+loop():  loopnr: 150, xPortGetFreeHeapSize(): 266992 bytes
+loop():  loopnr: 152, xPortGetFreeHeapSize(): 267016 bytes
+loop():  loopnr: 154, xPortGetFreeHeapSize(): 267016 bytes
+loop():  loopnr: 156, xPortGetFreeHeapSize(): 267016 bytes
+loop():  loopnr: 158, xPortGetFreeHeapSize(): 266940 bytes
+loop():  loopnr: 160, xPortGetFreeHeapSize(): 266940 bytes
+loop():  loopnr: 162, xPortGetFreeHeapSize(): 266892 bytes
+loop():  loopnr: 164, xPortGetFreeHeapSize(): 266892 bytes
+loop():  loopnr: 166, xPortGetFreeHeapSize(): 266892 bytes
+loop():  loopnr: 168, xPortGetFreeHeapSize(): 266920 bytes
+loop():  loopnr: 170, xPortGetFreeHeapSize(): 266920 bytes
+loop():  loopnr: 172, xPortGetFreeHeapSize(): 266840 bytes
+loop():  loopnr: 174, xPortGetFreeHeapSize(): 266840 bytes
+loop():  loopnr: 176, xPortGetFreeHeapSize(): 266808 bytes <<<=== from loop 120 until/including loop 176, leaked (lost) 320 bytes 
+
+RTC updated with SNTP datetime
+handle_request(): entry xPortGetFreeHeapSize(): 266812 bytes
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-22T19:26:04Z","sync_time":1732303564,"diff_t":301,"index":3,"display":1,"f_heap":266808,"id":"M5Dial"}"}
+HTTP Response code: 302
+handle_request(): exit xPortGetFreeHeapSize(): 266772 bytes
+handle_request(): heapSize difference (lost) 40 bytes
+loop():  loopnr: 178, xPortGetFreeHeapSize(): 266820 bytes  <<<=== from here to/including loop 234 are 29 lines
+loop():  loopnr: 180, xPortGetFreeHeapSize(): 266852 bytes
+loop():  loopnr: 182, xPortGetFreeHeapSize(): 266852 bytes
+loop():  loopnr: 184, xPortGetFreeHeapSize(): 266852 bytes
+loop():  loopnr: 186, xPortGetFreeHeapSize(): 266852 bytes
+loop():  loopnr: 188, xPortGetFreeHeapSize(): 266876 bytes
+loop():  loopnr: 190, xPortGetFreeHeapSize(): 266876 bytes
+loop():  loopnr: 192, xPortGetFreeHeapSize(): 266800 bytes
+loop():  loopnr: 194, xPortGetFreeHeapSize(): 266800 bytes
+loop():  loopnr: 196, xPortGetFreeHeapSize(): 266800 bytes
+loop():  loopnr: 198, xPortGetFreeHeapSize(): 266752 bytes
+loop():  loopnr: 200, xPortGetFreeHeapSize(): 266752 bytes
+loop():  loopnr: 202, xPortGetFreeHeapSize(): 266780 bytes
+loop():  loopnr: 204, xPortGetFreeHeapSize(): 266780 bytes
+loop():  loopnr: 206, xPortGetFreeHeapSize(): 266780 bytes
+loop():  loopnr: 208, xPortGetFreeHeapSize(): 266700 bytes
+loop():  loopnr: 210, xPortGetFreeHeapSize(): 266700 bytes
+loop():  loopnr: 212, xPortGetFreeHeapSize(): 266708 bytes
+loop():  loopnr: 214, xPortGetFreeHeapSize(): 266708 bytes
+loop():  loopnr: 216, xPortGetFreeHeapSize(): 266708 bytes
+loop():  loopnr: 218, xPortGetFreeHeapSize(): 266708 bytes
+loop():  loopnr: 220, xPortGetFreeHeapSize(): 266708 bytes
+loop():  loopnr: 222, xPortGetFreeHeapSize(): 266732 bytes
+loop():  loopnr: 224, xPortGetFreeHeapSize(): 266732 bytes
+loop():  loopnr: 226, xPortGetFreeHeapSize(): 266732 bytes
+loop():  loopnr: 228, xPortGetFreeHeapSize(): 266656 bytes
+loop():  loopnr: 230, xPortGetFreeHeapSize(): 266656 bytes
+loop():  loopnr: 232, xPortGetFreeHeapSize(): 266608 bytes
+loop():  loopnr: 234, xPortGetFreeHeapSize(): 266608 bytes <<<=== from loop 178 until/including loop 234, leaked (lost) 212 bytes
+
+RTC updated with SNTP datetime
+handle_request(): entry xPortGetFreeHeapSize(): 266576 bytes
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-22T19:31:11Z","sync_time":1732303871,"diff_t":307,"index":4,"display":1,"f_heap":266572,"id":"M5Dial"}"}
+HTTP Response code: 302
+handle_request(): exit xPortGetFreeHeapSize(): 266544 bytes
+handle_request(): heapSize difference (lost) 32 bytes
+loop():  loopnr: 236, xPortGetFreeHeapSize(): 266576 bytes  <<<=== from here to/including loop 292 are 29 lines
+loop():  loopnr: 238, xPortGetFreeHeapSize(): 266604 bytes
+loop():  loopnr: 240, xPortGetFreeHeapSize(): 266604 bytes
+loop():  loopnr: 242, xPortGetFreeHeapSize(): 266524 bytes
+loop():  loopnr: 244, xPortGetFreeHeapSize(): 266524 bytes
+loop():  loopnr: 246, xPortGetFreeHeapSize(): 266524 bytes
+loop():  loopnr: 248, xPortGetFreeHeapSize(): 266532 bytes
+loop():  loopnr: 250, xPortGetFreeHeapSize(): 266532 bytes
+loop():  loopnr: 252, xPortGetFreeHeapSize(): 266532 bytes
+loop():  loopnr: 254, xPortGetFreeHeapSize(): 266564 bytes
+loop():  loopnr: 256, xPortGetFreeHeapSize(): 266564 bytes
+loop():  loopnr: 258, xPortGetFreeHeapSize(): 266588 bytes
+loop():  loopnr: 260, xPortGetFreeHeapSize(): 266588 bytes
+loop():  loopnr: 262, xPortGetFreeHeapSize(): 266512 bytes
+loop():  loopnr: 264, xPortGetFreeHeapSize(): 266512 bytes
+loop():  loopnr: 266, xPortGetFreeHeapSize(): 266512 bytes
+loop():  loopnr: 268, xPortGetFreeHeapSize(): 266464 bytes
+loop():  loopnr: 270, xPortGetFreeHeapSize(): 266464 bytes
+loop():  loopnr: 272, xPortGetFreeHeapSize(): 266492 bytes
+loop():  loopnr: 274, xPortGetFreeHeapSize(): 266492 bytes
+loop():  loopnr: 276, xPortGetFreeHeapSize(): 266492 bytes
+loop():  loopnr: 278, xPortGetFreeHeapSize(): 266412 bytes
+loop():  loopnr: 280, xPortGetFreeHeapSize(): 266412 bytes
+loop():  loopnr: 282, xPortGetFreeHeapSize(): 266420 bytes
+loop():  loopnr: 284, xPortGetFreeHeapSize(): 266420 bytes
+loop():  loopnr: 286, xPortGetFreeHeapSize(): 266420 bytes
+loop():  loopnr: 288, xPortGetFreeHeapSize(): 266420 bytes
+loop():  loopnr: 290, xPortGetFreeHeapSize(): 266420 bytes
+loop():  loopnr: 292, xPortGetFreeHeapSize(): 266444 bytes <<<=== from loop 236 until/including loop 292, leaked (lost) 132 bytes
+
+RTC updated with SNTP datetime
+handle_request(): entry xPortGetFreeHeapSize(): 266412 bytes
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-22T19:36:18Z","sync_time":1732304178,"diff_t":307,"index":5,"display":1,"f_heap":266408,"id":"M5Dial"}"}
+HTTP Response code: 302
+handle_request(): exit xPortGetFreeHeapSize(): 266380 bytes
+handle_request(): heapSize difference (lost) 32 bytes
+loop():  loopnr: 294, xPortGetFreeHeapSize(): 266412 bytes  <<<=== from here to/including loop 350 are 29 lines
+loop():  loopnr: 296, xPortGetFreeHeapSize(): 266412 bytes
+loop():  loopnr: 298, xPortGetFreeHeapSize(): 266368 bytes
+loop():  loopnr: 300, xPortGetFreeHeapSize(): 266368 bytes
+loop():  loopnr: 302, xPortGetFreeHeapSize(): 266320 bytes
+loop():  loopnr: 304, xPortGetFreeHeapSize(): 266320 bytes
+loop():  loopnr: 306, xPortGetFreeHeapSize(): 266320 bytes
+loop():  loopnr: 308, xPortGetFreeHeapSize(): 266348 bytes
+loop():  loopnr: 310, xPortGetFreeHeapSize(): 266348 bytes
+loop():  loopnr: 312, xPortGetFreeHeapSize(): 266268 bytes
+loop():  loopnr: 314, xPortGetFreeHeapSize(): 266268 bytes
+loop():  loopnr: 316, xPortGetFreeHeapSize(): 266268 bytes
+loop():  loopnr: 318, xPortGetFreeHeapSize(): 266276 bytes
+loop():  loopnr: 320, xPortGetFreeHeapSize(): 266276 bytes
+loop():  loopnr: 322, xPortGetFreeHeapSize(): 266276 bytes
+loop():  loopnr: 324, xPortGetFreeHeapSize(): 266276 bytes
+loop():  loopnr: 326, xPortGetFreeHeapSize(): 266276 bytes
+loop():  loopnr: 328, xPortGetFreeHeapSize(): 266300 bytes
+loop():  loopnr: 330, xPortGetFreeHeapSize(): 266300 bytes
+loop():  loopnr: 332, xPortGetFreeHeapSize(): 266224 bytes
+loop():  loopnr: 334, xPortGetFreeHeapSize(): 266224 bytes
+loop():  loopnr: 336, xPortGetFreeHeapSize(): 266224 bytes
+loop():  loopnr: 338, xPortGetFreeHeapSize(): 266176 bytes
+loop():  loopnr: 340, xPortGetFreeHeapSize(): 266176 bytes
+loop():  loopnr: 342, xPortGetFreeHeapSize(): 266204 bytes
+loop():  loopnr: 344, xPortGetFreeHeapSize(): 266204 bytes
+loop():  loopnr: 346, xPortGetFreeHeapSize(): 266204 bytes
+loop():  loopnr: 348, xPortGetFreeHeapSize(): 266124 bytes
+loop():  loopnr: 350, xPortGetFreeHeapSize(): 266124 bytes <<<=== from loop 294 until/including loop 350, leaked (lost) 288 bytes
+
+RTC updated with SNTP datetime
+handle_request(): entry xPortGetFreeHeapSize(): 266092 bytes
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-22T19:41:22Z","sync_time":1732304482,"diff_t":304,"index":6,"display":1,"f_heap":266088,"id":"M5Dial"}"}
+HTTP Response code: 302
+handle_request(): exit xPortGetFreeHeapSize(): 266052 bytes
+handle_request(): heapSize difference (lost) 40 bytes
+loop():  loopnr: 352, xPortGetFreeHeapSize(): 266100 bytes <<<=== from here to/including loop 408 are 29 lines
+loop():  loopnr: 354, xPortGetFreeHeapSize(): 266100 bytes
+loop():  loopnr: 356, xPortGetFreeHeapSize(): 266100 bytes
+loop():  loopnr: 358, xPortGetFreeHeapSize(): 266100 bytes
+loop():  loopnr: 360, xPortGetFreeHeapSize(): 266100 bytes
+loop():  loopnr: 362, xPortGetFreeHeapSize(): 266124 bytes
+loop():  loopnr: 364, xPortGetFreeHeapSize(): 266124 bytes
+loop():  loopnr: 366, xPortGetFreeHeapSize(): 266124 bytes
+loop():  loopnr: 368, xPortGetFreeHeapSize(): 266048 bytes
+loop():  loopnr: 370, xPortGetFreeHeapSize(): 266048 bytes
+loop():  loopnr: 370, xPortGetFreeHeapSize(): 266048 bytes
+loop():  loopnr: 372, xPortGetFreeHeapSize(): 266000 bytes
+loop():  loopnr: 374, xPortGetFreeHeapSize(): 266000 bytes
+loop():  loopnr: 376, xPortGetFreeHeapSize(): 266032 bytes
+loop():  loopnr: 378, xPortGetFreeHeapSize(): 266060 bytes
+loop():  loopnr: 380, xPortGetFreeHeapSize(): 266060 bytes
+loop():  loopnr: 382, xPortGetFreeHeapSize(): 265980 bytes
+loop():  loopnr: 384, xPortGetFreeHeapSize(): 265980 bytes
+loop():  loopnr: 386, xPortGetFreeHeapSize(): 265980 bytes
+loop():  loopnr: 388, xPortGetFreeHeapSize(): 265988 bytes
+loop():  loopnr: 390, xPortGetFreeHeapSize(): 265988 bytes
+loop():  loopnr: 392, xPortGetFreeHeapSize(): 265988 bytes
+loop():  loopnr: 394, xPortGetFreeHeapSize(): 265988 bytes
+loop():  loopnr: 396, xPortGetFreeHeapSize(): 265988 bytes
+loop():  loopnr: 398, xPortGetFreeHeapSize(): 266012 bytes
+loop():  loopnr: 400, xPortGetFreeHeapSize(): 266012 bytes
+loop():  loopnr: 402, xPortGetFreeHeapSize(): 265936 bytes
+loop():  loopnr: 404, xPortGetFreeHeapSize(): 265936 bytes
+loop():  loopnr: 406, xPortGetFreeHeapSize(): 265936 bytes
+loop():  loopnr: 408, xPortGetFreeHeapSize(): 265888 bytes <<<=== from loop 352 until/including loop 408, leaked (lost) 212 bytes
+
+RTC updated with SNTP datetime
+handle_request(): entry xPortGetFreeHeapSize(): 265856 bytes
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-22T19:46:27Z","sync_time":1732304787,"diff_t":305,"index":7,"display":1,"f_heap":265852,"id":"M5Dial"}"}
+HTTP Response code: 302
+handle_request(): exit xPortGetFreeHeapSize(): 265816 bytes
+handle_request(): heapSize difference (lost) 40 bytes
+loop():  loopnr: 410, xPortGetFreeHeapSize(): 265856 bytes <<<=== from here to/including loop 468 are 29 lines
+loop():  loopnr: 412, xPortGetFreeHeapSize(): 265884 bytes
+loop():  loopnr: 414, xPortGetFreeHeapSize(): 265884 bytes
+loop():  loopnr: 416, xPortGetFreeHeapSize(): 265884 bytes
+loop():  loopnr: 418, xPortGetFreeHeapSize(): 265804 bytes
+loop():  loopnr: 420, xPortGetFreeHeapSize(): 265804 bytes
+loop():  loopnr: 422, xPortGetFreeHeapSize(): 265812 bytes
+loop():  loopnr: 424, xPortGetFreeHeapSize(): 265812 bytes
+loop():  loopnr: 426, xPortGetFreeHeapSize(): 265812 bytes
+loop():  loopnr: 428, xPortGetFreeHeapSize(): 265812 bytes
+loop():  loopnr: 430, xPortGetFreeHeapSize(): 265812 bytes
+loop():  loopnr: 432, xPortGetFreeHeapSize(): 265836 bytes
+loop():  loopnr: 434, xPortGetFreeHeapSize(): 265836 bytes
+loop():  loopnr: 436, xPortGetFreeHeapSize(): 265836 bytes
+loop():  loopnr: 438, xPortGetFreeHeapSize(): 265760 bytes
+loop():  loopnr: 440, xPortGetFreeHeapSize(): 265760 bytes
+loop():  loopnr: 442, xPortGetFreeHeapSize(): 265712 bytes
+loop():  loopnr: 444, xPortGetFreeHeapSize(): 265712 bytes
+loop():  loopnr: 446, xPortGetFreeHeapSize(): 265712 bytes
+loop():  loopnr: 448, xPortGetFreeHeapSize(): 265772 bytes
+loop():  loopnr: 450, xPortGetFreeHeapSize(): 265772 bytes
+loop():  loopnr: 452, xPortGetFreeHeapSize(): 265692 bytes
+loop():  loopnr: 454, xPortGetFreeHeapSize(): 265692 bytes
+loop():  loopnr: 456, xPortGetFreeHeapSize(): 265692 bytes
+loop():  loopnr: 458, xPortGetFreeHeapSize(): 265700 bytes
+loop():  loopnr: 460, xPortGetFreeHeapSize(): 265700 bytes
+loop():  loopnr: 462, xPortGetFreeHeapSize(): 265700 bytes
+loop():  loopnr: 464, xPortGetFreeHeapSize(): 265700 bytes
+loop():  loopnr: 466, xPortGetFreeHeapSize(): 265700 bytes
+loop():  loopnr: 468, xPortGetFreeHeapSize(): 265688 bytes <<<=== from loop 410 until/including loop 468, leaked (lost) 168 bytes
+
+RTC updated with SNTP datetime
+handle_request(): entry xPortGetFreeHeapSize(): 265692 bytes
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-22T19:51:32Z","sync_time":1732305092,"diff_t":305,"index":8,"display":1,"f_heap":265688,"id":"M5Dial"}"}
+HTTP Response code: 302
+handle_request(): exit xPortGetFreeHeapSize(): 265652 bytes
+handle_request(): heapSize difference (lost) 40 bytes
+loop():  loopnr: 470, xPortGetFreeHeapSize(): 265692 bytes <<<=== from here to/including loop 526 are 29 lines
+loop():  loopnr: 472, xPortGetFreeHeapSize(): 265616 bytes
+loop():  loopnr: 474, xPortGetFreeHeapSize(): 265616 bytes
+loop():  loopnr: 476, xPortGetFreeHeapSize(): 265648 bytes
+loop():  loopnr: 478, xPortGetFreeHeapSize(): 265600 bytes
+loop():  loopnr: 480, xPortGetFreeHeapSize(): 265600 bytes
+loop():  loopnr: 482, xPortGetFreeHeapSize(): 265628 bytes
+loop():  loopnr: 484, xPortGetFreeHeapSize(): 265628 bytes
+loop():  loopnr: 486, xPortGetFreeHeapSize(): 265628 bytes
+loop():  loopnr: 488, xPortGetFreeHeapSize(): 265548 bytes
+loop():  loopnr: 490, xPortGetFreeHeapSize(): 265548 bytes
+loop():  loopnr: 492, xPortGetFreeHeapSize(): 265556 bytes
+loop():  loopnr: 494, xPortGetFreeHeapSize(): 265556 bytes
+loop():  loopnr: 496, xPortGetFreeHeapSize(): 265556 bytes
+loop():  loopnr: 498, xPortGetFreeHeapSize(): 265556 bytes
+loop():  loopnr: 500, xPortGetFreeHeapSize(): 265556 bytes
+loop():  loopnr: 502, xPortGetFreeHeapSize(): 265580 bytes
+loop():  loopnr: 504, xPortGetFreeHeapSize(): 265580 bytes
+loop():  loopnr: 506, xPortGetFreeHeapSize(): 265580 bytes
+loop():  loopnr: 508, xPortGetFreeHeapSize(): 265504 bytes
+loop():  loopnr: 510, xPortGetFreeHeapSize(): 265504 bytes
+loop():  loopnr: 512, xPortGetFreeHeapSize(): 265456 bytes
+loop():  loopnr: 514, xPortGetFreeHeapSize(): 265456 bytes
+loop():  loopnr: 516, xPortGetFreeHeapSize(): 265456 bytes
+loop():  loopnr: 518, xPortGetFreeHeapSize(): 265484 bytes
+loop():  loopnr: 520, xPortGetFreeHeapSize(): 265484 bytes
+loop():  loopnr: 522, xPortGetFreeHeapSize(): 265404 bytes
+loop():  loopnr: 524, xPortGetFreeHeapSize(): 265404 bytes
+loop():  loopnr: 526, xPortGetFreeHeapSize(): 265368 bytes <<<=== from loop 470 until/including loop 526, leaked (lost) 324 bytes
+
+--------------------------------------------------------------------
+Note: in the ten previous data sent to the Google Sheets spreadsheet 
+the average leak/loss is 286 bytes per dataset sent to Google.
+---------------------------------------------------------------------
+
+RTC updated with SNTP datetime
+handle_request(): entry xPortGetFreeHeapSize(): 265372 bytes
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-22T19:56:38Z","sync_time":1732305398,"diff_t":306,"index":9,"display":1,"f_heap":265368,"id":"M5Dial"}"}
+HTTP Response code: 302
+handle_request(): exit xPortGetFreeHeapSize(): 265328 bytes
+handle_request(): heapSize difference (lost) 44 bytes
+loop():  loopnr: 528, xPortGetFreeHeapSize(): 265380 bytes <<<=== from here to/including loop 584 are 29 lines
+loop():  loopnr: 530, xPortGetFreeHeapSize(): 265380 bytes
+loop():  loopnr: 532, xPortGetFreeHeapSize(): 265380 bytes
+loop():  loopnr: 534, xPortGetFreeHeapSize(): 265380 bytes
+loop():  loopnr: 536, xPortGetFreeHeapSize(): 265380 bytes
+loop():  loopnr: 538, xPortGetFreeHeapSize(): 265404 bytes
+loop():  loopnr: 540, xPortGetFreeHeapSize(): 265436 bytes
+loop():  loopnr: 542, xPortGetFreeHeapSize(): 265360 bytes
+loop():  loopnr: 544, xPortGetFreeHeapSize(): 265360 bytes
+loop():  loopnr: 546, xPortGetFreeHeapSize(): 265360 bytes
+loop():  loopnr: 548, xPortGetFreeHeapSize(): 265312 bytes
+loop():  loopnr: 550, xPortGetFreeHeapSize(): 265312 bytes
+loop():  loopnr: 552, xPortGetFreeHeapSize(): 265340 bytes
+loop():  loopnr: 554, xPortGetFreeHeapSize(): 265340 bytes
+loop():  loopnr: 556, xPortGetFreeHeapSize(): 265340 bytes
+loop():  loopnr: 558, xPortGetFreeHeapSize(): 265260 bytes
+loop():  loopnr: 560, xPortGetFreeHeapSize(): 265260 bytes
+loop():  loopnr: 562, xPortGetFreeHeapSize(): 265268 bytes
+loop():  loopnr: 564, xPortGetFreeHeapSize(): 265268 bytes
+loop():  loopnr: 566, xPortGetFreeHeapSize(): 265268 bytes
+loop():  loopnr: 568, xPortGetFreeHeapSize(): 265268 bytes
+loop():  loopnr: 570, xPortGetFreeHeapSize(): 265268 bytes
+loop():  loopnr: 572, xPortGetFreeHeapSize(): 265292 bytes
+loop():  loopnr: 574, xPortGetFreeHeapSize(): 265292 bytes
+loop():  loopnr: 576, xPortGetFreeHeapSize(): 265292 bytes
+loop():  loopnr: 578, xPortGetFreeHeapSize(): 265216 bytes
+loop():  loopnr: 580, xPortGetFreeHeapSize(): 265016 bytes
+loop():  loopnr: 582, xPortGetFreeHeapSize(): 264968 bytes
+loop():  loopnr: 584, xPortGetFreeHeapSize(): 264932 bytes <<<=== from loop 528 until/including loop 584, leaked (lost) 448 bytes
+
+RTC updated with SNTP datetime
+handle_request(): entry xPortGetFreeHeapSize(): 264936 bytes
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-22T20:01:41Z","sync_time":1732305701,"diff_t":303,"index":10,"display":1,"f_heap":264932,"id":"M5Dial"}"}
+HTTP Response code: 302
+handle_request(): exit xPortGetFreeHeapSize(): 264896 bytes
+handle_request(): heapSize difference (lost) 40 bytes
+loop():  loopnr: 586, xPortGetFreeHeapSize(): 264936 bytes <<<=== from here to/including loop 526 are 29 lines
+loop():  loopnr: 588, xPortGetFreeHeapSize(): 264964 bytes
+loop():  loopnr: 590, xPortGetFreeHeapSize(): 264964 bytes
+
+etc.
+
+
+NOTE: 24 entries into the M5Dial_Timezones_SNTP_sync_times spreadsheet took 01:56:53 (hh:mm:ss).
+      The average leakage/loss was: 258 bytes.
+	  
+----------------------------------------------
+After moving local vars from initTime() to global and a 
+
+--------------------------------------------------------
+
+SNTP sync interval: 5 minutes
+loop():  loopnr:   2, xPortGetFreeHeapSize(): 267688 bytes
+
+RTC updated with SNTP datetime
+handle_request(): entry xPortGetFreeHeapSize(): 267728 bytes
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-22T21:47:12Z","sync_time":1732312032,"diff_t":0,"index":0,"display":1,"f_heap":267688,"id":"M5Dial"}"}
+HTTP Response code: 302
+handle_request(): exit xPortGetFreeHeapSize(): 267028 bytes
+handle_request(): heapSize difference (lost) 700 bytes
+loop():  loopnr:   4, xPortGetFreeHeapSize(): 265148 bytes <<<=== from here to/including loop 60 are 30 lines
+loop():  loopnr:   4, xPortGetFreeHeapSize(): 265148 bytes
+loop():  loopnr:   6, xPortGetFreeHeapSize(): 267476 bytes
+loop():  loopnr:   8, xPortGetFreeHeapSize(): 267476 bytes
+loop():  loopnr:  10, xPortGetFreeHeapSize(): 267476 bytes
+loop():  loopnr:  12, xPortGetFreeHeapSize(): 267508 bytes <<<=== Here gained 2360 bytes !!!
+loop():  loopnr:  14, xPortGetFreeHeapSize(): 267508 bytes 
+loop():  loopnr:  16, xPortGetFreeHeapSize(): 267508 bytes
+loop():  loopnr:  18, xPortGetFreeHeapSize(): 267432 bytes
+loop():  loopnr:  20, xPortGetFreeHeapSize(): 267432 bytes
+loop():  loopnr:  22, xPortGetFreeHeapSize(): 267384 bytes
+loop():  loopnr:  24, xPortGetFreeHeapSize(): 267384 bytes
+loop():  loopnr:  26, xPortGetFreeHeapSize(): 267384 bytes
+loop():  loopnr:  28, xPortGetFreeHeapSize(): 267432 bytes
+loop():  loopnr:  30, xPortGetFreeHeapSize(): 267432 bytes
+loop():  loopnr:  32, xPortGetFreeHeapSize(): 267352 bytes
+loop():  loopnr:  34, xPortGetFreeHeapSize(): 267352 bytes
+loop():  loopnr:  36, xPortGetFreeHeapSize(): 267352 bytes
+loop():  loopnr:  38, xPortGetFreeHeapSize(): 267360 bytes
+loop():  loopnr:  40, xPortGetFreeHeapSize(): 267360 bytes
+loop():  loopnr:  42, xPortGetFreeHeapSize(): 267360 bytes
+loop():  loopnr:  44, xPortGetFreeHeapSize(): 267360 bytes
+loop():  loopnr:  46, xPortGetFreeHeapSize(): 267360 bytes
+loop():  loopnr:  48, xPortGetFreeHeapSize(): 267384 bytes
+loop():  loopnr:  50, xPortGetFreeHeapSize(): 267384 bytes
+loop():  loopnr:  52, xPortGetFreeHeapSize(): 267308 bytes
+loop():  loopnr:  54, xPortGetFreeHeapSize(): 267308 bytes
+loop():  loopnr:  56, xPortGetFreeHeapSize(): 267308 bytes
+loop():  loopnr:  58, xPortGetFreeHeapSize(): 267260 bytes
+loop():  loopnr:  60, xPortGetFreeHeapSize(): 267260 bytes <<<=== from loop 12 until/including loop 60, leaked/lost 248 bytes!!!
+
+RTC updated with SNTP datetime
+handle_request(): entry xPortGetFreeHeapSize(): 267196 bytes
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-22T21:52:17Z","sync_time":1732312337,"diff_t":305,"index":1,"display":1,"f_heap":267260,"id":"M5Dial"}"}
+HTTP Response code: 302
+handle_request(): exit xPortGetFreeHeapSize(): 266988 bytes
+handle_request(): heapSize difference (lost) 208 bytes
+loop():  loopnr:  62, xPortGetFreeHeapSize(): 267256 bytes <<<=== from here to/including loop 118 are 29 lines
+loop():  loopnr:  64, xPortGetFreeHeapSize(): 267256 bytes
+loop():  loopnr:  66, xPortGetFreeHeapSize(): 267256 bytes
+loop():  loopnr:  68, xPortGetFreeHeapSize(): 267176 bytes
+loop():  loopnr:  70, xPortGetFreeHeapSize(): 267176 bytes
+loop():  loopnr:  72, xPortGetFreeHeapSize(): 267180 bytes
+loop():  loopnr:  74, xPortGetFreeHeapSize(): 267180 bytes
+loop():  loopnr:  76, xPortGetFreeHeapSize(): 267180 bytes
+loop():  loopnr:  78, xPortGetFreeHeapSize(): 267180 bytes
+loop():  loopnr:  80, xPortGetFreeHeapSize(): 267180 bytes
+loop():  loopnr:  82, xPortGetFreeHeapSize(): 267208 bytes <<< gain 28 bytes
+loop():  loopnr:  84, xPortGetFreeHeapSize(): 267208 bytes
+loop():  loopnr:  86, xPortGetFreeHeapSize(): 267208 bytes
+loop():  loopnr:  88, xPortGetFreeHeapSize(): 267132 bytes
+loop():  loopnr:  90, xPortGetFreeHeapSize(): 267132 bytes
+loop():  loopnr:  92, xPortGetFreeHeapSize(): 267084 bytes
+loop():  loopnr:  94, xPortGetFreeHeapSize(): 267084 bytes
+loop():  loopnr:  96, xPortGetFreeHeapSize(): 267128 bytes
+loop():  loopnr:  98, xPortGetFreeHeapSize(): 267156 bytes
+loop():  loopnr: 100, xPortGetFreeHeapSize(): 267156 bytes
+loop():  loopnr: 102, xPortGetFreeHeapSize(): 267076 bytes
+loop():  loopnr: 104, xPortGetFreeHeapSize(): 267076 bytes
+loop():  loopnr: 106, xPortGetFreeHeapSize(): 267076 bytes
+loop():  loopnr: 108, xPortGetFreeHeapSize(): 267080 bytes
+loop():  loopnr: 110, xPortGetFreeHeapSize(): 267080 bytes
+loop():  loopnr: 112, xPortGetFreeHeapSize(): 267080 bytes
+loop():  loopnr: 114, xPortGetFreeHeapSize(): 267080 bytes
+loop():  loopnr: 116, xPortGetFreeHeapSize(): 267080 bytes
+loop():  loopnr: 118, xPortGetFreeHeapSize(): 267052 bytes <<<=== from loop 62 until/including loop 118, leaked (lost) 204 bytes
+
+RTC updated with SNTP datetime
+handle_request(): entry xPortGetFreeHeapSize(): 267052 bytes
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-22T21:57:18Z","sync_time":1732312638,"diff_t":301,"index":2,"display":1,"f_heap":267052,"id":"M5Dial"}"}
+HTTP Response code: 302
+handle_request(): exit xPortGetFreeHeapSize(): 267012 bytes
+handle_request(): heapSize difference (lost) 40 bytes
+loop():  loopnr: 120, xPortGetFreeHeapSize(): 267052 bytes <<<=== from here to/including loop 176 are 29 lines
+loop():  loopnr: 122, xPortGetFreeHeapSize(): 266976 bytes
+loop():  loopnr: 124, xPortGetFreeHeapSize(): 266976 bytes
+loop():  loopnr: 126, xPortGetFreeHeapSize(): 266976 bytes
+loop():  loopnr: 128, xPortGetFreeHeapSize(): 266928 bytes
+loop():  loopnr: 130, xPortGetFreeHeapSize(): 266928 bytes
+loop():  loopnr: 132, xPortGetFreeHeapSize(): 266956 bytes
+loop():  loopnr: 134, xPortGetFreeHeapSize(): 266956 bytes
+loop():  loopnr: 136, xPortGetFreeHeapSize(): 266956 bytes
+loop():  loopnr: 138, xPortGetFreeHeapSize(): 266876 bytes
+loop():  loopnr: 140, xPortGetFreeHeapSize(): 266876 bytes
+loop():  loopnr: 142, xPortGetFreeHeapSize(): 266880 bytes
+loop():  loopnr: 144, xPortGetFreeHeapSize(): 266880 bytes
+loop():  loopnr: 146, xPortGetFreeHeapSize(): 266880 bytes
+loop():  loopnr: 148, xPortGetFreeHeapSize(): 266880 bytes
+loop():  loopnr: 150, xPortGetFreeHeapSize(): 266880 bytes
+loop():  loopnr: 152, xPortGetFreeHeapSize(): 266952 bytes
+loop():  loopnr: 154, xPortGetFreeHeapSize(): 266952 bytes
+loop():  loopnr: 156, xPortGetFreeHeapSize(): 266952 bytes
+loop():  loopnr: 158, xPortGetFreeHeapSize(): 266876 bytes
+loop():  loopnr: 160, xPortGetFreeHeapSize(): 266876 bytes
+loop():  loopnr: 162, xPortGetFreeHeapSize(): 266828 bytes
+loop():  loopnr: 164, xPortGetFreeHeapSize(): 266628 bytes
+loop():  loopnr: 166, xPortGetFreeHeapSize(): 266628 bytes
+loop():  loopnr: 168, xPortGetFreeHeapSize(): 266656 bytes
+loop():  loopnr: 170, xPortGetFreeHeapSize(): 266656 bytes
+loop():  loopnr: 172, xPortGetFreeHeapSize(): 266576 bytes
+loop():  loopnr: 174, xPortGetFreeHeapSize(): 266576 bytes
+loop():  loopnr: 176, xPortGetFreeHeapSize(): 266576 bytes <<<=== from loop 120 until/including loop 176, leaked (lost) 476 bytes
+
+-----------------------------------
+After a small change in the sketch:
+-----------------------------------
+
+In the serie of loops  62 - 118 lost 160 bytes, however during this group of loops there were also occasions of gain of 32 bytes!
+idem                  120 - 176 lost 288 bytes  also gained 32 bytes 
+idem                  178 - 234 lost 208 bytes  also gained 28 + 32 + 28 + 28 bytes
+idem                  236 - 292 lost 132 bytes  also gained 28 + 4 + 28 + 28 + 4 + 28
+
+-----------------------------------
+After a small change in the sketch:
+-----------------------------------
+
+M5Stack M5Dial Timezones, M5Atom Echo, RFID and data to Google test.
+
+WiFi Connected
+initializing SNTP
+running on core 1
+SNTP sync interval: 5 minutes
+
+RTC updated with SNTP datetime
+handle_request(): entry xPortGetFreeHeapSize(): 267720 bytes
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-22T22:59:14Z","sync_time":1732316354,"diff_t":0,"index":0,"display":1,"f_heap":267972,"id":"M5Dial"}"}
+HTTP Response code: 302
+handle_request(): exit xPortGetFreeHeapSize(): 266832 bytes
+handle_request(): heapSize difference (lost) 888 bytes
+loop():  loopnr:   2, xPortGetFreeHeapSize(): 267496 bytes
+loop():  loopnr:   4, xPortGetFreeHeapSize(): 267496 bytes
+loop():  loopnr:   6, xPortGetFreeHeapSize(): 267496 bytes
+loop():  loopnr:   8, xPortGetFreeHeapSize(): 267496 bytes
+loop():  loopnr:  10, xPortGetFreeHeapSize(): 267496 bytes
+loop():  loopnr:  12, xPortGetFreeHeapSize(): 267520 bytes
+loop():  loopnr:  14, xPortGetFreeHeapSize(): 267520 bytes
+loop():  loopnr:  16, xPortGetFreeHeapSize(): 267520 bytes
+loop():  loopnr:  18, xPortGetFreeHeapSize(): 267432 bytes
+loop():  loopnr:  20, xPortGetFreeHeapSize(): 267432 bytes
+loop():  loopnr:  22, xPortGetFreeHeapSize(): 267384 bytes
+loop():  loopnr:  24, xPortGetFreeHeapSize(): 267384 bytes
+loop():  loopnr:  26, xPortGetFreeHeapSize(): 267184 bytes
+loop():  loopnr:  28, xPortGetFreeHeapSize(): 267212 bytes
+loop():  loopnr:  30, xPortGetFreeHeapSize(): 267212 bytes
+loop():  loopnr:  32, xPortGetFreeHeapSize(): 267132 bytes
+loop():  loopnr:  34, xPortGetFreeHeapSize(): 267132 bytes
+loop():  loopnr:  36, xPortGetFreeHeapSize(): 267132 bytes
+loop():  loopnr:  38, xPortGetFreeHeapSize(): 267140 bytes
+loop():  loopnr:  40, xPortGetFreeHeapSize(): 267140 bytes
+loop():  loopnr:  42, xPortGetFreeHeapSize(): 267140 bytes
+loop():  loopnr:  44, xPortGetFreeHeapSize(): 267140 bytes
+loop():  loopnr:  46, xPortGetFreeHeapSize(): 267140 bytes
+loop():  loopnr:  48, xPortGetFreeHeapSize(): 267188 bytes
+loop():  loopnr:  50, xPortGetFreeHeapSize(): 267188 bytes
+loop():  loopnr:  52, xPortGetFreeHeapSize(): 267112 bytes
+loop():  loopnr:  54, xPortGetFreeHeapSize(): 267112 bytes
+loop():  loopnr:  56, xPortGetFreeHeapSize(): 267112 bytes
+loop():  loopnr:  58, xPortGetFreeHeapSize(): 267064 bytes
+loop():  loopnr:  60, xPortGetFreeHeapSize(): 228580 bytes
+loop():  loopnr:  62, xPortGetFreeHeapSize(): 211804 bytes
+loop():  loopnr:  64, xPortGetFreeHeapSize(): 190204 bytes
+loop(): Free heap is below threshold of 200000 bytes, Going  to Reset...  <<<=== This works OK !
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0xa (SPI_FAST_FLASH_BOOT)
+Saved PC:0x420c7c5a
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce3808,len:0x44c
+load:0x403c9700,len:0xbd8
+load:0x403cc700,len:0x2a80
+entry 0x403c98d0
+
+
+M5Stack M5Dial Timezones, M5Atom Echo, RFID and data to Google test.
+
+WiFi Connected
+initializing SNTP
+running on core 1
+SNTP sync interval: 5 minutes
+loop():  loopnr:   2, xPortGetFreeHeapSize(): 267748 bytes
+
+RTC updated with SNTP datetime
+handle_request(): entry xPortGetFreeHeapSize(): 267748 bytes
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-22T23:04:58Z","sync_time":1732316698,"diff_t":0,"index":0,"display":1,"f_heap":267748,"id":"M5Dial"}"}
+HTTP Response code: 302
+handle_request(): exit xPortGetFreeHeapSize(): 266840 bytes
+handle_request(): heapSize difference (lost) 908 bytes
+loop():  loopnr:   4, xPortGetFreeHeapSize(): 267496 bytes <<<=== from here to/including loop 60 are 29 lines
+loop():  loopnr:   6, xPortGetFreeHeapSize(): 267496 bytes
+loop():  loopnr:   8, xPortGetFreeHeapSize(): 267496 bytes
+loop():  loopnr:  10, xPortGetFreeHeapSize(): 267496 bytes
+loop():  loopnr:  12, xPortGetFreeHeapSize(): 267520 bytes
+loop():  loopnr:  14, xPortGetFreeHeapSize(): 267520 bytes
+loop():  loopnr:  16, xPortGetFreeHeapSize(): 267520 bytes
+loop():  loopnr:  18, xPortGetFreeHeapSize(): 267444 bytes
+loop():  loopnr:  20, xPortGetFreeHeapSize(): 267444 bytes
+loop():  loopnr:  22, xPortGetFreeHeapSize(): 267396 bytes
+loop():  loopnr:  24, xPortGetFreeHeapSize(): 267396 bytes
+loop():  loopnr:  26, xPortGetFreeHeapSize(): 267396 bytes
+loop():  loopnr:  28, xPortGetFreeHeapSize(): 267424 bytes
+loop():  loopnr:  30, xPortGetFreeHeapSize(): 267456 bytes
+loop():  loopnr:  32, xPortGetFreeHeapSize(): 267368 bytes
+loop():  loopnr:  34, xPortGetFreeHeapSize(): 267368 bytes
+loop():  loopnr:  36, xPortGetFreeHeapSize(): 267368 bytes
+loop():  loopnr:  38, xPortGetFreeHeapSize(): 267384 bytes |
+loop():  loopnr:  40, xPortGetFreeHeapSize(): 267384 bytes |
+loop():  loopnr:  42, xPortGetFreeHeapSize(): 267384 bytes | 5 x same FreeHeapSize!
+loop():  loopnr:  44, xPortGetFreeHeapSize(): 267384 bytes |
+loop():  loopnr:  46, xPortGetFreeHeapSize(): 267384 bytes |
+loop():  loopnr:  48, xPortGetFreeHeapSize(): 267408 bytes
+loop():  loopnr:  50, xPortGetFreeHeapSize(): 267408 bytes
+loop():  loopnr:  52, xPortGetFreeHeapSize(): 267324 bytes
+loop():  loopnr:  54, xPortGetFreeHeapSize(): 267324 bytes
+loop():  loopnr:  56, xPortGetFreeHeapSize(): 267324 bytes
+loop():  loopnr:  58, xPortGetFreeHeapSize(): 267276 bytes
+loop():  loopnr:  60, xPortGetFreeHeapSize(): 267236 bytes <<<=== from loop 4 until/including loop 60, leaked (lost) 260 bytes
+
+RTC updated with SNTP datetime
+handle_request(): entry xPortGetFreeHeapSize(): 267236 bytes
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-22T23:10:01Z","sync_time":1732317001,"diff_t":303,"index":1,"display":1,"f_heap":267236,"id":"M5Dial"}"}
+HTTP Response code: 302
+handle_request(): exit xPortGetFreeHeapSize(): 267004 bytes
+handle_request(): heapSize difference (lost) 232 bytes
+loop():  loopnr:  62, xPortGetFreeHeapSize(): 267272 bytes
+
+NOTE: what I see now is that it now occurs many more times that successive loops have the same FreeHeapSize value. 
+Even up to 5 loops in a sequence! That means: no leak!
+
+loop():  loopnr:  62, xPortGetFreeHeapSize(): 267272 bytes <<<=== from here to/including loop 118 are 29 lines
+loop():  loopnr:  64, xPortGetFreeHeapSize(): 267272 bytes
+loop():  loopnr:  66, xPortGetFreeHeapSize(): 267272 bytes
+loop():  loopnr:  68, xPortGetFreeHeapSize(): 267192 bytes
+loop():  loopnr:  70, xPortGetFreeHeapSize(): 267192 bytes
+loop():  loopnr:  72, xPortGetFreeHeapSize(): 267200 bytes |
+loop():  loopnr:  74, xPortGetFreeHeapSize(): 267200 bytes |
+loop():  loopnr:  76, xPortGetFreeHeapSize(): 267200 bytes | 5 x same FreeHeapSize!
+loop():  loopnr:  78, xPortGetFreeHeapSize(): 267200 bytes |
+loop():  loopnr:  80, xPortGetFreeHeapSize(): 267200 bytes |
+loop():  loopnr:  82, xPortGetFreeHeapSize(): 267224 bytes
+loop():  loopnr:  84, xPortGetFreeHeapSize(): 267224 bytes
+loop():  loopnr:  86, xPortGetFreeHeapSize(): 267224 bytes
+loop():  loopnr:  88, xPortGetFreeHeapSize(): 267148 bytes
+loop():  loopnr:  90, xPortGetFreeHeapSize(): 267148 bytes
+loop():  loopnr:  92, xPortGetFreeHeapSize(): 267100 bytes
+loop():  loopnr:  94, xPortGetFreeHeapSize(): 267100 bytes
+loop():  loopnr:  96, xPortGetFreeHeapSize(): 267100 bytes
+loop():  loopnr:  98, xPortGetFreeHeapSize(): 267160 bytes
+loop():  loopnr: 100, xPortGetFreeHeapSize(): 267160 bytes
+loop():  loopnr: 102, xPortGetFreeHeapSize(): 267080 bytes
+loop():  loopnr: 104, xPortGetFreeHeapSize(): 267080 bytes
+loop():  loopnr: 106, xPortGetFreeHeapSize(): 267080 bytes
+loop():  loopnr: 108, xPortGetFreeHeapSize(): 267088 bytes |
+loop():  loopnr: 110, xPortGetFreeHeapSize(): 267088 bytes |
+loop():  loopnr: 112, xPortGetFreeHeapSize(): 267088 bytes | 5 x same FreeHeapSize!
+loop():  loopnr: 114, xPortGetFreeHeapSize(): 267088 bytes |
+loop():  loopnr: 116, xPortGetFreeHeapSize(): 267088 bytes |
+loop():  loopnr: 118, xPortGetFreeHeapSize(): 267072 bytes  <<<=== from loop 62 until/including loop 118, leaked (lost) 200 bytes
+
+RTC updated with SNTP datetime
+handle_request(): entry xPortGetFreeHeapSize(): 267072 bytes
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-22T23:15:06Z","sync_time":1732317306,"diff_t":305,"index":2,"display":1,"f_heap":267072,"id":"M5Dial"}"}
+HTTP Response code: 302
+handle_request(): exit xPortGetFreeHeapSize(): 267040 bytes
+handle_request(): heapSize difference (lost) 32 bytes
+loop():  loopnr: 120, xPortGetFreeHeapSize(): 267072 bytes <<<=== from here to/including loop 176 are 29 lines
+loop():  loopnr: 122, xPortGetFreeHeapSize(): 266996 bytes
+loop():  loopnr: 124, xPortGetFreeHeapSize(): 266996 bytes
+loop():  loopnr: 126, xPortGetFreeHeapSize(): 266996 bytes
+loop():  loopnr: 128, xPortGetFreeHeapSize(): 266948 bytes
+loop():  loopnr: 130, xPortGetFreeHeapSize(): 266948 bytes
+loop():  loopnr: 132, xPortGetFreeHeapSize(): 266976 bytes
+loop():  loopnr: 134, xPortGetFreeHeapSize(): 266976 bytes
+loop():  loopnr: 136, xPortGetFreeHeapSize(): 266976 bytes
+loop():  loopnr: 138, xPortGetFreeHeapSize(): 266884 bytes
+loop():  loopnr: 140, xPortGetFreeHeapSize(): 266884 bytes
+loop():  loopnr: 142, xPortGetFreeHeapSize(): 266900 bytes |
+loop():  loopnr: 144, xPortGetFreeHeapSize(): 266900 bytes |
+loop():  loopnr: 146, xPortGetFreeHeapSize(): 266900 bytes | 5 x same FreeHeapSize!
+loop():  loopnr: 148, xPortGetFreeHeapSize(): 266900 bytes |
+loop():  loopnr: 150, xPortGetFreeHeapSize(): 266900 bytes |
+loop():  loopnr: 152, xPortGetFreeHeapSize(): 266928 bytes
+loop():  loopnr: 154, xPortGetFreeHeapSize(): 266928 bytes
+loop():  loopnr: 156, xPortGetFreeHeapSize(): 266928 bytes
+loop():  loopnr: 158, xPortGetFreeHeapSize(): 266840 bytes
+loop():  loopnr: 160, xPortGetFreeHeapSize(): 266840 bytes
+loop():  loopnr: 162, xPortGetFreeHeapSize(): 266792 bytes
+loop():  loopnr: 164, xPortGetFreeHeapSize(): 266792 bytes
+loop():  loopnr: 166, xPortGetFreeHeapSize(): 266792 bytes
+loop():  loopnr: 168, xPortGetFreeHeapSize(): 266820 bytes
+loop():  loopnr: 170, xPortGetFreeHeapSize(): 266820 bytes
+loop():  loopnr: 172, xPortGetFreeHeapSize(): 266740 bytes
+loop():  loopnr: 174, xPortGetFreeHeapSize(): 266772 bytes
+loop():  loopnr: 176, xPortGetFreeHeapSize(): 266772 bytes  <<<=== from loop 120 until/including loop 187, leaked (lost) 300 bytes
+
+RTC updated with SNTP datetime
+handle_request(): entry xPortGetFreeHeapSize(): 266744 bytes
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-22T23:20:14Z","sync_time":1732317614,"diff_t":308,"index":3,"display":1,"f_heap":266744,"id":"M5Dial"}"}
+HTTP Response code: 302
+handle_request(): exit xPortGetFreeHeapSize(): 266712 bytes
+handle_request(): heapSize difference (lost) 32 bytes
+loop():  loopnr: 178, xPortGetFreeHeapSize(): 266752 bytes | <<<=== from here to/including loop 234 are 29 lines
+loop():  loopnr: 180, xPortGetFreeHeapSize(): 266752 bytes |
+loop():  loopnr: 182, xPortGetFreeHeapSize(): 266752 bytes | 5 x same FreeHeapSize!
+loop():  loopnr: 184, xPortGetFreeHeapSize(): 266752 bytes |
+loop():  loopnr: 186, xPortGetFreeHeapSize(): 266752 bytes |
+loop():  loopnr: 188, xPortGetFreeHeapSize(): 266780 bytes
+loop():  loopnr: 190, xPortGetFreeHeapSize(): 266780 bytes
+loop():  loopnr: 192, xPortGetFreeHeapSize(): 266704 bytes
+loop():  loopnr: 194, xPortGetFreeHeapSize(): 266704 bytes
+loop():  loopnr: 196, xPortGetFreeHeapSize(): 266704 bytes
+loop():  loopnr: 198, xPortGetFreeHeapSize(): 266656 bytes
+loop():  loopnr: 200, xPortGetFreeHeapSize(): 266656 bytes
+loop():  loopnr: 202, xPortGetFreeHeapSize(): 266684 bytes
+loop():  loopnr: 204, xPortGetFreeHeapSize(): 266684 bytes
+loop():  loopnr: 206, xPortGetFreeHeapSize(): 266684 bytes
+loop():  loopnr: 208, xPortGetFreeHeapSize(): 266604 bytes
+loop():  loopnr: 210, xPortGetFreeHeapSize(): 266604 bytes
+loop():  loopnr: 212, xPortGetFreeHeapSize(): 266612 bytes |
+loop():  loopnr: 214, xPortGetFreeHeapSize(): 266612 bytes |
+loop():  loopnr: 216, xPortGetFreeHeapSize(): 266612 bytes | 5 x same FreeHeapSize!
+loop():  loopnr: 218, xPortGetFreeHeapSize(): 266612 bytes |
+loop():  loopnr: 220, xPortGetFreeHeapSize(): 266612 bytes |
+loop():  loopnr: 222, xPortGetFreeHeapSize(): 266636 bytes
+loop():  loopnr: 224, xPortGetFreeHeapSize(): 266636 bytes
+loop():  loopnr: 226, xPortGetFreeHeapSize(): 266668 bytes
+loop():  loopnr: 228, xPortGetFreeHeapSize(): 266592 bytes
+loop():  loopnr: 230, xPortGetFreeHeapSize(): 266592 bytes
+loop():  loopnr: 232, xPortGetFreeHeapSize(): 266544 bytes
+loop():  loopnr: 234, xPortGetFreeHeapSize(): 266544 bytes  <<<=== from loop 178 until/including loop 234, leaked (lost) 208 bytes
+
+RTC updated with SNTP datetime
+handle_request(): entry xPortGetFreeHeapSize(): 266504 bytes
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-22T23:25:18Z","sync_time":1732317918,"diff_t":304,"index":4,"display":1,"f_heap":266504,"id":"M5Dial"}"}
+HTTP Response code: 302
+handle_request(): exit xPortGetFreeHeapSize(): 266472 bytes
+handle_request(): heapSize difference (lost) 32 bytes
+loop():  loopnr: 236, xPortGetFreeHeapSize(): 266504 bytes <<<=== from here to/including loop 292 are 29 lines
+loop():  loopnr: 238, xPortGetFreeHeapSize(): 266532 bytes + 28 bytes
+loop():  loopnr: 240, xPortGetFreeHeapSize(): 266532 bytes
+loop():  loopnr: 242, xPortGetFreeHeapSize(): 266452 bytes
+loop():  loopnr: 244, xPortGetFreeHeapSize(): 266452 bytes
+loop():  loopnr: 246, xPortGetFreeHeapSize(): 266452 bytes
+loop():  loopnr: 248, xPortGetFreeHeapSize(): 266456 bytes |
+loop():  loopnr: 250, xPortGetFreeHeapSize(): 266456 bytes |
+loop():  loopnr: 252, xPortGetFreeHeapSize(): 266456 bytes | 5 x same FreeHeapSize!
+loop():  loopnr: 254, xPortGetFreeHeapSize(): 266456 bytes |
+loop():  loopnr: 256, xPortGetFreeHeapSize(): 266456 bytes |
+loop():  loopnr: 258, xPortGetFreeHeapSize(): 266484 bytes   +28 bytes
+loop():  loopnr: 260, xPortGetFreeHeapSize(): 266484 bytes
+loop():  loopnr: 262, xPortGetFreeHeapSize(): 266408 bytes
+loop():  loopnr: 264, xPortGetFreeHeapSize(): 266408 bytes
+loop():  loopnr: 266, xPortGetFreeHeapSize(): 266408 bytes
+loop():  loopnr: 268, xPortGetFreeHeapSize(): 266360 bytes
+loop():  loopnr: 270, xPortGetFreeHeapSize(): 266360 bytes
+loop():  loopnr: 272, xPortGetFreeHeapSize(): 266388 bytes + 28 bytes
+loop():  loopnr: 274, xPortGetFreeHeapSize(): 266388 bytes
+loop():  loopnr: 276, xPortGetFreeHeapSize(): 266388 bytes
+loop():  loopnr: 278, xPortGetFreeHeapSize(): 266308 bytes
+loop():  loopnr: 280, xPortGetFreeHeapSize(): 266308 bytes
+loop():  loopnr: 282, xPortGetFreeHeapSize(): 266312 bytes + 4 bytes
+loop():  loopnr: 284, xPortGetFreeHeapSize(): 266312 bytes
+loop():  loopnr: 286, xPortGetFreeHeapSize(): 266312 bytes
+loop():  loopnr: 288, xPortGetFreeHeapSize(): 266312 bytes
+loop():  loopnr: 290, xPortGetFreeHeapSize(): 266344 bytes + 32 bytes
+loop():  loopnr: 292, xPortGetFreeHeapSize(): 266372 bytes + 28 bytes  <<<=== from loop 236 until/including loop 292, leaked (lost) 132 bytes
+
+RTC updated with SNTP datetime
+handle_request(): entry xPortGetFreeHeapSize(): 266340 bytes
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-22T23:30:21Z","sync_time":1732318221,"diff_t":303,"index":5,"display":1,"f_heap":266340,"id":"M5Dial"}"}
+HTTP Response code: 302
+handle_request(): exit xPortGetFreeHeapSize(): 266308 bytes
+handle_request(): heapSize difference (lost) 32 bytes
+loop():  loopnr: 294, xPortGetFreeHeapSize(): 266340 bytes
+
+---------------------------------------------------------------------
+After deleting memory leakage investigation code in handle_request():
+---------------------------------------------------------------------
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0xa (SPI_FAST_FLASH_BOOT)
+Saved PC:0x420c7b1e
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce3808,len:0x44c
+load:0x403c9700,len:0xbd8
+load:0x403cc700,len:0x2a80
+entry 0x403c98d0
+
+
+M5Stack M5Dial Timezones, M5Atom Echo, RFID and data to Google test.
+
+WiFi Connected
+initializing SNTP
+running on core 1
+SNTP sync interval: 5 minutes
+loop():  loopnr:   2, xPortGetFreeHeapSize(): 267736 bytes
+
+RTC updated with SNTP datetime
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-22T23:42:06Z","sync_time":1732318926,"diff_t":0,"index":0,"display":1,"f_heap":267736,"id":"M5Dial"}"}
+HTTP Response code: 302
+loop():  loopnr:   4, xPortGetFreeHeapSize(): 267484 bytes fm loop nr 2 lost 252 bytes     <<<=== from here to/including loop 60 are 29 lines
+loop():  loopnr:   6, xPortGetFreeHeapSize(): 267484 bytes
+loop():  loopnr:   8, xPortGetFreeHeapSize(): 267484 bytes
+loop():  loopnr:  10, xPortGetFreeHeapSize(): 267484 bytes
+loop():  loopnr:  12, xPortGetFreeHeapSize(): 267516 bytes
+loop():  loopnr:  14, xPortGetFreeHeapSize(): 267516 bytes
+loop():  loopnr:  16, xPortGetFreeHeapSize(): 267516 bytes
+loop():  loopnr:  18, xPortGetFreeHeapSize(): 267440 bytes
+loop():  loopnr:  20, xPortGetFreeHeapSize(): 267440 bytes
+loop():  loopnr:  22, xPortGetFreeHeapSize(): 267392 bytes
+loop():  loopnr:  24, xPortGetFreeHeapSize(): 267392 bytes
+loop():  loopnr:  26, xPortGetFreeHeapSize(): 267392 bytes
+loop():  loopnr:  28, xPortGetFreeHeapSize(): 267420 bytes
+loop():  loopnr:  30, xPortGetFreeHeapSize(): 267420 bytes
+loop():  loopnr:  32, xPortGetFreeHeapSize(): 267340 bytes
+loop():  loopnr:  34, xPortGetFreeHeapSize(): 267340 bytes
+loop():  loopnr:  36, xPortGetFreeHeapSize(): 267340 bytes
+loop():  loopnr:  38, xPortGetFreeHeapSize(): 267344 bytes
+loop():  loopnr:  40, xPortGetFreeHeapSize(): 267344 bytes
+loop():  loopnr:  42, xPortGetFreeHeapSize(): 267344 bytes
+loop():  loopnr:  44, xPortGetFreeHeapSize(): 267344 bytes
+loop():  loopnr:  46, xPortGetFreeHeapSize(): 267344 bytes
+loop():  loopnr:  48, xPortGetFreeHeapSize(): 267372 bytes
+loop():  loopnr:  50, xPortGetFreeHeapSize(): 267372 bytes
+loop():  loopnr:  52, xPortGetFreeHeapSize(): 267296 bytes
+loop():  loopnr:  54, xPortGetFreeHeapSize(): 267296 bytes
+loop():  loopnr:  56, xPortGetFreeHeapSize(): 267296 bytes
+loop():  loopnr:  58, xPortGetFreeHeapSize(): 267248 bytes
+loop():  loopnr:  60, xPortGetFreeHeapSize(): 267248 bytes  <<<=== from loop 4 until/including loop 60, leaked (lost) 236 bytes
+                                                                   from loop 2 until/including loop 60, leaked (lost) 488 bytes
+
+RTC updated with SNTP datetime
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-22T23:47:09Z","sync_time":1732319229,"diff_t":303,"index":1,"display":1,"f_heap":267248,"id":"M5Dial"}"}
+HTTP Response code: 302
+loop():  loopnr:  62, xPortGetFreeHeapSize(): 267264 bytes
+
+-----------------------------
+After some changes in loop():     (changed loopnr mod 2 into mod 5)
+-----------------------------
+
+
+WiFi Connected
+initializing SNTP
+running on core 1
+SNTP sync interval: 5 minutes
+loop():  loopnr:   0, xPortGetFreeHeapSize(): 268128 bytes
+
+RTC updated with SNTP datetime
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-23T00:02:15Z","sync_time":1732320135,"diff_t":0,"index":0,"display":1,"f_heap":267772,"id":"M5Dial"}"}
+HTTP Response code: 302
+loop():  loopnr:   5, xPortGetFreeHeapSize(): 267520 bytes <<<=== from loopnr 0 to/including loop 55 are 12 lines
+loop():  loopnr:  10, xPortGetFreeHeapSize(): 267520 bytes
+loop():  loopnr:  15, xPortGetFreeHeapSize(): 267544 bytes
+loop():  loopnr:  20, xPortGetFreeHeapSize(): 267460 bytes
+loop():  loopnr:  25, xPortGetFreeHeapSize(): 267412 bytes
+loop():  loopnr:  30, xPortGetFreeHeapSize(): 267440 bytes
+loop():  loopnr:  35, xPortGetFreeHeapSize(): 267360 bytes
+loop():  loopnr:  40, xPortGetFreeHeapSize(): 267364 bytes
+loop():  loopnr:  45, xPortGetFreeHeapSize(): 267364 bytes
+loop():  loopnr:  50, xPortGetFreeHeapSize(): 267424 bytes
+loop():  loopnr:  55, xPortGetFreeHeapSize(): 267348 bytes  <<<=== from loop 2 until/including loop 55, leaked (lost) 780 bytes
+
+RTC updated with SNTP datetime
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-23T00:07:21Z","sync_time":1732320441,"diff_t":306,"index":1,"display":1,"f_heap":267268,"id":"M5Dial"}"}
+HTTP Response code: 302
+loop():  loopnr:  60, xPortGetFreeHeapSize(): 267268 bytes <<<=== from here to/including loop 120 are 13 lines
+loop():  loopnr:  65, xPortGetFreeHeapSize(): 267296 bytes
+loop():  loopnr:  70, xPortGetFreeHeapSize(): 267216 bytes
+loop():  loopnr:  75, xPortGetFreeHeapSize(): 267220 bytes
+loop():  loopnr:  80, xPortGetFreeHeapSize(): 267220 bytes
+loop():  loopnr:  85, xPortGetFreeHeapSize(): 267248 bytes
+loop():  loopnr:  90, xPortGetFreeHeapSize(): 267172 bytes
+loop():  loopnr:  95, xPortGetFreeHeapSize(): 267124 bytes
+loop():  loopnr: 100, xPortGetFreeHeapSize(): 267152 bytes
+loop():  loopnr: 105, xPortGetFreeHeapSize(): 267072 bytes
+loop():  loopnr: 110, xPortGetFreeHeapSize(): 267108 bytes
+loop():  loopnr: 115, xPortGetFreeHeapSize(): 267108 bytes
+
+RTC updated with SNTP datetime
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-23T00:12:25Z","sync_time":1732320745,"diff_t":304,"index":2,"display":1,"f_heap":267104,"id":"M5Dial"}"}
+HTTP Response code: 302
+loop():  loopnr: 120, xPortGetFreeHeapSize(): 267104 bytes  <<<=== from loop 60 until/including loop 120, leaked (lost) 164 bytes
+loop():  loopnr: 125, xPortGetFreeHeapSize(): 267028 bytes
+loop():  loopnr: 130, xPortGetFreeHeapSize(): 266980 bytes
+loop():  loopnr: 135, xPortGetFreeHeapSize(): 267008 bytes
+loop():  loopnr: 140, xPortGetFreeHeapSize(): 266928 bytes
+loop():  loopnr: 145, xPortGetFreeHeapSize(): 266932 bytes
+loop():  loopnr: 150, xPortGetFreeHeapSize(): 266932 bytes
+loop():  loopnr: 155, xPortGetFreeHeapSize(): 266960 bytes
+loop():  loopnr: 160, xPortGetFreeHeapSize(): 266884 bytes
+loop():  loopnr: 165, xPortGetFreeHeapSize(): 266868 bytes
+loop():  loopnr: 170, xPortGetFreeHeapSize(): 266896 bytes
+loop():  loopnr: 175, xPortGetFreeHeapSize(): 266784 bytes <<<=== from loop 120 until/including loop 175, leaked (lost) 320 bytes
+
+
+RTC updated with SNTP datetime
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-23T00:17:29Z","sync_time":1732321049,"diff_t":304,"index":3,"display":1,"f_heap":266784,"id":"M5Dial"}"}
+HTTP Response code: 302
+loop():  loopnr: 180, xPortGetFreeHeapSize(): 266788 bytes
+loop():  loopnr: 185, xPortGetFreeHeapSize(): 266788 bytes
+loop():  loopnr: 190, xPortGetFreeHeapSize(): 266816 bytes
+loop():  loopnr: 195, xPortGetFreeHeapSize(): 266740 bytes
+loop():  loopnr: 200, xPortGetFreeHeapSize(): 266692 bytes
+loop():  loopnr: 205, xPortGetFreeHeapSize(): 266720 bytes
+loop():  loopnr: 210, xPortGetFreeHeapSize(): 266672 bytes
+loop():  loopnr: 215, xPortGetFreeHeapSize(): 266680 bytes
+loop():  loopnr: 220, xPortGetFreeHeapSize(): 266680 bytes
+loop():  loopnr: 225, xPortGetFreeHeapSize(): 266704 bytes
+loop():  loopnr: 230, xPortGetFreeHeapSize(): 266628 bytes <<=== from loop 180 until/including loop 230, leaked (lost) 160 bytes
+
+RTC updated with SNTP datetime
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-23T00:22:34Z","sync_time":1732321354,"diff_t":305,"index":4,"display":1,"f_heap":266548,"id":"M5Dial"}"}
+HTTP Response code: 302
+loop():  loopnr: 235, xPortGetFreeHeapSize(): 266548 bytes  
+loop():  loopnr: 240, xPortGetFreeHeapSize(): 266576 bytes
+loop():  loopnr: 245, xPortGetFreeHeapSize(): 266496 bytes
+loop():  loopnr: 250, xPortGetFreeHeapSize(): 266504 bytes
+loop():  loopnr: 255, xPortGetFreeHeapSize(): 266504 bytes
+loop():  loopnr: 260, xPortGetFreeHeapSize(): 266560 bytes
+loop():  loopnr: 265, xPortGetFreeHeapSize(): 266484 bytes
+loop():  loopnr: 270, xPortGetFreeHeapSize(): 266436 bytes
+loop():  loopnr: 275, xPortGetFreeHeapSize(): 266464 bytes
+loop():  loopnr: 280, xPortGetFreeHeapSize(): 266384 bytes
+loop():  loopnr: 285, xPortGetFreeHeapSize(): 266392 bytes
+loop():  loopnr: 290, xPortGetFreeHeapSize(): 266392 bytes  <<=== from loop 235 until/including loop 290, leaked (lost) 156 bytes
+
+
+RTC updated with SNTP datetime
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-23T00:27:38Z","sync_time":1732321658,"diff_t":304,"index":5,"display":1,"f_heap":266376,"id":"M5Dial"}"}
+HTTP Response code: 302
+loop():  loopnr: 295, xPortGetFreeHeapSize(): 266384 bytes
+loop():  loopnr: 300, xPortGetFreeHeapSize(): 266308 bytes
+loop():  loopnr: 305, xPortGetFreeHeapSize(): 266260 bytes
+loop():  loopnr: 310, xPortGetFreeHeapSize(): 266288 bytes
+loop():  loopnr: 315, xPortGetFreeHeapSize(): 266240 bytes
+loop():  loopnr: 320, xPortGetFreeHeapSize(): 266248 bytes
+loop():  loopnr: 325, xPortGetFreeHeapSize(): 266248 bytes
+loop():  loopnr: 330, xPortGetFreeHeapSize(): 266272 bytes
+loop():  loopnr: 335, xPortGetFreeHeapSize(): 266196 bytes
+loop():  loopnr: 340, xPortGetFreeHeapSize(): 266148 bytes
+loop():  loopnr: 345, xPortGetFreeHeapSize(): 266176 bytes  <<=== from loop 295 until/including loop 345, leaked (lost) 208  bytes
+
+RTC updated with SNTP datetime
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-23T00:32:40Z","sync_time":1732321960,"diff_t":302,"index":6,"display":1,"f_heap":266064,"id":"M5Dial"}"}
+HTTP Response code: 302
+loop():  loopnr: 350, xPortGetFreeHeapSize(): 266064 bytes
+loop():  loopnr: 355, xPortGetFreeHeapSize(): 266072 bytes
+loop():  loopnr: 360, xPortGetFreeHeapSize(): 266072 bytes
+loop():  loopnr: 365, xPortGetFreeHeapSize(): 266096 bytes
+loop():  loopnr: 370, xPortGetFreeHeapSize(): 266020 bytes
+loop():  loopnr: 375, xPortGetFreeHeapSize(): 265972 bytes
+loop():  loopnr: 380, xPortGetFreeHeapSize(): 266000 bytes
+loop():  loopnr: 385, xPortGetFreeHeapSize(): 265952 bytes
+loop():  loopnr: 390, xPortGetFreeHeapSize(): 265960 bytes
+loop():  loopnr: 395, xPortGetFreeHeapSize(): 265960 bytes
+loop():  loopnr: 400, xPortGetFreeHeapSize(): 265984 bytes
+
+[...]
+
+oop():  loopnr: 170, xPortGetFreeHeapSize(): 267328 bytes
+loop():  loopnr: 180, xPortGetFreeHeapSize(): 267328 bytes
+loop():  loopnr: 190, xPortGetFreeHeapSize(): 267252 bytes
+loop():  loopnr: 200, xPortGetFreeHeapSize(): 267252 bytes
+loop():  loopnr: 210, xPortGetFreeHeapSize(): 267204 bytes
+loop():  loopnr: 220, xPortGetFreeHeapSize(): 267204 bytes
+loop():  loopnr: 230, xPortGetFreeHeapSize(): 226340 bytes
+loop():  loopnr: 240, xPortGetFreeHeapSize(): 223964 bytes
+loop(): Free heap is below threshold of 200000 bytes, Going  to Reset...  <<<===  
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0xa (SPI_FAST_FLASH_BOOT)
+Saved PC:0x420c7b2e
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce3808,len:0x44c
+load:0x403c9700,len:0xbd8
+load:0x403cc700,len:0x2a80
+entry 0x403c98d0
+
+------------------------------------
+[...]  NIGHT HOURS
+------------------------------------
+
+loop():  loopnr: 330, xPortGetFreeHeapSize(): 267096 bytes
+loop():  loopnr: 340, xPortGetFreeHeapSize(): 266956 bytes
+loop():  loopnr: 350, xPortGetFreeHeap240240 bytes
+loop():  loopnr: 590, xPortGetFreeHeapSize(): 240164 bytes
+display state changed to: On
+loop():  loopnr: 600, xPortGetFreeHeapSize(): 240116 bytes
+loop():  loopnr: 610, xPortGetFreeHeapSize(): 240096 bytes
+loop():  loopnr: 620, xPortGetFreeHeapSize(): 240104 bytes
+loop():  loopnr: 630, xPortGetFreeHeapSize(): 240052 bytes
+loop():  loopnr: 640, xPortGetFreeHeapSize(): 240032 bytes
+
+RTC updated with SNTP datetime
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-23T10:37:43Z","sync_time":1732358263,"diff_t":304,"index":16,"display":1,"f_heap":239920,"id":"M5Dial"}"}
+HTTP Response code: 302
+loop():  loopnr: 650, xPortGetFreeHeapSize(): 239928 bytes
+loop():  loopnr: 660, xPortGetFreeHeapSize(): 239952 bytes
+loop():  loopnr: 670, xPortGetFreeHeapSize(): 239828 bytes
+loop():  loopnr: 680, xPortGetFreeHeapSize(): 239808 bytes
+loop():  loopnr: 690, xPortGetFreeHeapSize(): 239816 bytes
+loop():  loopnr: 700, xPortGetFreeHeapSize(): 239764 bytes
+
+RTC updated with SNTP datetime
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-23T10:42:48Z","sync_time":1732358568,"diff_t":305,"index":17,"display":1,"f_heap":239684,"id":"M5Dial"}"}
+HTTP Response code: 302
+loop():  loopnr: 710, xPortGetFreeHeapSize(): 239712 bytes
+loop():  loopnr: 720, xPortGetFreeHeapSize(): 239640 bytes
+loop():  loopnr: 730, xPortGetFreeHeapSize(): 239696 bytes
+loop():  loopnr: 740, xPortGetFreeHeapSize(): 239572 bytes
+loop():  loopnr: 750, xPortGetFreeHeapSize(): 239520 bytes
+loop():  loopnr: 760, xPortGetFreeHeapSize(): 239528 bytes
+
+RTC updated with SNTP datetime
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-23T10:47:54Z","sync_time":1732358874,"diff_t":306,"index":18,"display":1,"f_heap":239496,"id":"M5Dial"}"}
+HTTP Response code: 302
+loop():  loopnr: 770, xPortGetFreeHeapSize(): 239444 bytes
+loop():  loopnr: 780, xPortGetFreeHeapSize(): 239424 bytes
+loop():  loopnr: 790, xPortGetFreeHeapSize(): 239384 bytes
+loop():  loopnr: 800, xPortGetFreeHeapSize(): 239408 bytes
+loop():  loopnr: 810, xPortGetFreeHeapSize(): 239284 bytes
+loop():  loopnr: 820, xPortGetFreeHeapSize(): 239232 bytes
+RTC updated with SNTP datetime
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-23T10:53:03Z","sync_time":1732359183,"diff_t":309,"index":19,"display":1,"f_heap":239200,"id":"M5Dial"}"}
+HTTP Response code: 302
+loop():  loopnr: 830, xPortGetFreeHeapSize(): 239208 bytes
+loop():  loopnr: 840, xPortGetFreeHeapSize(): 239156 bytes
+loop():  loopnr: 850, xPortGetFreeHeapSize(): 239136 bytes
+loop():  loopnr: 860, xPortGetFreeHeapSize(): 239064 bytes
+loop():  loopnr: 870, xPortGetFreeHeapSize(): 239088 bytes
+loop():  loopnr: 880, xPortGetFreeHeapSize(): 238996 bytes
+
+RTC updated with SNTP datetime
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-23T10:58:12Z","sync_time":1732359492,"diff_t":309,"index":20,"display":1,"f_heap":238964,"id":"M5Dial"}"}
+HTTP Response code: 302
+loop():  loopnr: 890, xPortGetFreeHeapSize(): 238912 bytes
+loop():  loopnr: 900, xPortGetFreeHeapSize(): 238920 bytes
+loop():  loopnr: 910, xPortGetFreeHeapSize(): 238900 bytes
+loop():  loopnr: 920, xPortGetFreeHeapSize(): 238880 bytes
+loop():  loopnr: 930, xPortGetFreeHeapSize(): 238808 bytes
+
+
+RTC updated with SNTP datetime
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-23T11:03:19Z","sync_time":1732359799,"diff_t":307,"index":21,"display":1,"f_heap":238800,"id":"M5Dial"}"}
+HTTP Response code: 302
+loop():  loopnr: 940, xPortGetFreeHeapSize(): 238800 bytes
+loop():  loopnr: 950, xPortGetFreeHeapSize(): 238676 bytes
+loop():  loopnr: 960, xPortGetFreeHeapSize(): 238616 bytes
+loop():  loopnr: 970, xPortGetFreeHeapSize(): 238624 bytes
+loop():  loopnr: 980, xPortGetFreeHeapSize(): 238604 bytes
+loop():  loopnr: 990, xPortGetFreeHeapSize(): 238584 bytes   <<<=== Next: rollover loopnr
+
+RTC updated with SNTP datetime
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-23T11:08:22Z","sync_time":1732360102,"diff_t":303,"index":22,"display":1,"f_heap":238472,"id":"M5Dial"}"}
+HTTP Response code: 302
+loop():  loopnr:  10, xPortGetFreeHeapSize(): 238480 bytes
+loop():  loopnr:  20, xPortGetFreeHeapSize(): 238536 bytes
+loop():  loopnr:  30, xPortGetFreeHeapSize(): 238412 bytes
+loop():  loopnr:  40, xPortGetFreeHeapSize(): 238360 bytes
+loop():  loopnr:  50, xPortGetFreeHeapSize(): 238368 bytes
+loop():  loopnr:  60, xPortGetFreeHeapSize(): 238316 bytes
+
+RTC updated with SNTP datetime
+SyncTimes array cleared: 
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-23T11:13:29Z","sync_time":1732360409,"diff_t":307,"index":23,"display":1,"f_heap":238236,"id":"M5Dial"}"}
+HTTP Response code: 302                                                           /\
+loop():  loopnr:  70, xPortGetFreeHeapSize(): 238264 bytes                        ||
+loop():  loopnr:  80, xPortGetFreeHeapSize(): 238192 bytes                        ||
+loop():  loopnr:  90, xPortGetFreeHeapSize(): 238248 bytes                        ||
+loop():  loopnr: 100, xPortGetFreeHeapSize(): 238124 bytes                        ||
+loop():  loopnr: 110, xPortGetFreeHeapSize(): 238072 bytes                        ||<<<=== Rollover index
+loop():  loopnr: 120, xPortGetFreeHeapSize(): 238080 bytes                        ||
+                                                                                  ||
+RTC updated with SNTP datetime                                                    ||
+serverName = "https://script.google.com"                                          ||
+Going to post a http request with these data:                                     \/ "{"data":"{"date":"2024-11-23T11:18:35Z","sync_time":1732360715,"diff_t":0,"index":0,"display":1,"f_heap":238072,"id":"M5Dial"}"}
+HTTP Response code: 302
+loop():  loopnr: 130, xPortGetFreeHeapSize(): 237996 bytes
+loop():  loopnr: 140, xPortGetFreeHeapSize(): 238008 bytes
+loop():  loopnr: 150, xPortGetFreeHeapSize(): 237936 bytes
+loop():  loopnr: 160, xPortGetFreeHeapSize(): 237960 bytes
+loop():  loopnr: 170, xPortGetFreeHeapSize(): 237836 bytes
+loop():  loopnr: 180, xPortGetFreeHeapSize(): 237784 bytes <<<=== Between loopnr 130 and loopnr 180 lost 212 bytes
+
+RTC updated with SNTP datetime
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-23T11:23:44Z","sync_time":1732361024,"diff_t":309,"index":1,"display":1,"f_heap":237784,"id":"M5Dial"}"}
+HTTP Response code: 302
+loop():  loopnr: 190, xPortGetFreeHeapSize(): 237760 bytes
+loop():  loopnr: 200, xPortGetFreeHeapSize(): 237708 bytes
+loop():  loopnr: 210, xPortGetFreeHeapSize(): 237688 bytes
+loop():  loopnr: 220, xPortGetFreeHeapSize(): 237616 bytes
+loop():  loopnr: 230, xPortGetFreeHeapSize(): 237672 bytes <<<=== Between loopnr 190 and loopnr 230 lost 88 bytes
+
+RTC updated with SNTP datetime
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-23T11:28:45Z","sync_time":1732361325,"diff_t":301,"index":2,"display":1,"f_heap":237516,"id":"M5Dial"}"}
+HTTP Response code: 302
+loop():  loopnr: 240, xPortGetFreeHeapSize(): 237516 bytes
+loop():  loopnr: 250, xPortGetFreeHeapSize(): 237464 bytes
+loop():  loopnr: 260, xPortGetFreeHeapSize(): 237504 bytes
+loop():  loopnr: 270, xPortGetFreeHeapSize(): 237452 bytes
+loop():  loopnr: 280, xPortGetFreeHeapSize(): 237432 bytes
+loop():  loopnr: 290, xPortGetFreeHeapSize(): 237360 bytes <<<=== Between loopnr 240 and loopnr 290 lost 156 bytes
+
+RTC updated with SNTP datetime
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-23T11:33:50Z","sync_time":1732361630,"diff_t":305,"index":3,"display":1,"f_heap":237320,"id":"M5Dial"}"}
+HTTP Response code: 302
+loop():  loopnr: 300, xPortGetFreeHeapSize(): 237352 bytes
+loop():  loopnr: 310, xPortGetFreeHeapSize(): 237228 bytes
+loop():  loopnr: 320, xPortGetFreeHeapSize(): 237176 bytes
+loop():  loopnr: 330, xPortGetFreeHeapSize(): 237216 bytes
+loop():  loopnr: 340, xPortGetFreeHeapSize(): 237164 bytes
+loop():  loopnr: 350, xPortGetFreeHeapSize(): 237144 bytes <<<=== Between loopnr 300 and loopnr 350 lost 208 bytes
+
+RTC updated with SNTP datetime
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-23T11:38:51Z","sync_time":1732361931,"diff_t":301,"index":4,"display":1,"f_heap":237032,"id":"M5Dial"}"}
+HTTP Response code: 302
+loop():  loopnr: 360, xPortGetFreeHeapSize(): 237040 bytes
+loop():  loopnr: 370, xPortGetFreeHeapSize(): 237064 bytes
+loop():  loopnr: 380, xPortGetFreeHeapSize(): 236972 bytes
+loop():  loopnr: 390, xPortGetFreeHeapSize(): 236920 bytes
+loop():  loopnr: 400, xPortGetFreeHeapSize(): 236928 bytes
+loop():  loopnr: 410, xPortGetFreeHeapSize(): 236876 bytes <<<=== Between loopnr 360 and loopnr 410 lost 164 bytes
+
+RTC updated with SNTP datetime
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-23T11:43:58Z","sync_time":1732362238,"diff_t":307,"index":5,"display":1,"f_heap":236828,"id":"M5Dial"}"}
+HTTP Response code: 302
+loop():  loopnr: 420, xPortGetFreeHeapSize(): 236824 bytes
+loop():  loopnr: 430, xPortGetFreeHeapSize(): 236752 bytes
+loop():  loopnr: 440, xPortGetFreeHeapSize(): 236776 bytes
+loop():  loopnr: 450, xPortGetFreeHeapSize(): 236652 bytes
+loop():  loopnr: 460, xPortGetFreeHeapSize(): 236600 bytes
+loop():  loopnr: 470, xPortGetFreeHeapSize(): 236608 bytes <<<=== Between loopnr 420 and loopnr 470 lost 216 bytes
+
+RTC updated with SNTP datetime
+serverName = "https://script.google.com"
+Going to post a http request with these data: "{"data":"{"date":"2024-11-23T11:48:59Z","sync_time":1732362539,"diff_t":301,"index":6,"display":1,"f_heap":236608,"id":"M5Dial"}"}
+HTTP Response code: 302
+loop():  loopnr: 480, xPortGetFreeHeapSize(): 236556 bytes
+loop():  loopnr: 490, xPortGetFreeHeapSize(): 236536 bytes
+
+Average losses over sets of 24 entries:
+261
+243
+240
+239
+247
+---- +
+1476 / 6  : average loss = 246 bytes 
+
