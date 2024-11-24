@@ -20,16 +20,12 @@ Hardware used:
 The software consists of two parts: a) for the M5Dial; b) for the M5Atom Echo.
 
 The M5Dial part:
-
-Since 2024-10-11 there are two versions of the M5Dial part: 
-1. an initial version that used display touch to put the display asleep or awake;
-2. an updated version with RFID TAG recognition. Now you can put the display asleep or awake with your RFID TAG.
-   The ID number of the RFID TAG has to be copied into the file ```secret.h```, variable: ```SECRET_MY_RFID_TAG_NR_HEX```,
-   for example: ```2b8e3942``` (letters in lower case). A global variable ```use_rfid``` (default: ```true```), controls if RFID recognition
-   will be active or not (in that case display touch will be the way to put the display asleep or awake).
+Using RFID TAG recognition. Now you can put the display asleep or awake with your RFID TAG.
+The ID number of the RFID TAG has to be copied into the file ```secret.h```, variable: ```SECRET_MY_RFID_TAG_NR_HEX```,
+for example: ```2b8e3942``` (letters in lower case). A global variable ```use_rfid``` (default: ```true```), controls if RFID recognition
+will be active or not (in that case display touch will be the way to put the display asleep or awake).
 
 After applying power to the M5Dial device, the sketch will sequentially display data of seven pre-programmed timezones.
-
 
 For each of the seven timezones, in four steps, the following data will be displayed:
    1) Time zone continent and city, for example: "Europe" and "Lisbon"; 
@@ -40,14 +36,21 @@ For each of the seven timezones, in four steps, the following data will be displ
 Each time zone sequence of four displays is repeated for 25 seconds. This repeat time is defined in function ```loop()```:
 
 ```
-845 unsigned long const zone_chg_interval_t = 25 * 1000L; // 25 seconds
+901 unsigned long const zone_chg_interval_t = 25 * 1000L; // 25 seconds
 ```
 
 Data to Google:
 
 New in this version is that we added the functionality to send some data to a Google Sheets Spreadsheet.
-The following data will be sent: 1) a datetime stamp in GMT time; 2) SNTP sync time (in epoch value); 3) difference time, in seconds, between the last SNTP sync time moment and the current; 4) an index number, ranging from 0 to 23; 5) an integer value indicating the state of the display: "1" = display on, "0" = display off; 6) value of FreeHeap memory in bytes; 7) name of the device that sent the data, in our case "M5Dial".
-
+The following data will be sent: 
+```
+1) a datetime stamp in GMT time;
+2) SNTP sync time (in epoch value);
+3) difference time, in seconds, between the last SNTP sync time moment and the current;
+4) an index number, ranging from 0 to 23;
+5) an integer value indicating the state of the display: "1" = display on, "0" = display off;
+6) value of FreeHeap memory in bytes; 7) name of the device that sent the data, in our case "M5Dial".
+```
 To acomplish this, the data is first sent through a ```HTML POST``` request to a Google Apps Scripts script which analyses the data and then adds the data to the Google Sheets spreadsheet.
 
 Prerequesits:
@@ -82,7 +85,7 @@ The sketch will connect to a SNTP server of your choice. In this version the ske
 The following define sets the SNTP polling interval time:
 
 ```
-67 #define CONFIG_LWIP_SNTP_UPDATE_DELAY  15 * 60 * 1000 // = 15 minutes
+67 #define CONFIG_LWIP_SNTP_UPDATE_DELAY  5 * 60 * 1000 // = 5 minutes
 ```
 
 At the moment of a SNTP Time Synchronization, the text "TS" will be shown in the middle of the toprow of the display.
@@ -161,10 +164,18 @@ If sound is ON (default), the RGB Led will show RED color.
 
 2024-10-17: Version 2 for M5Dial: in function ```time_sync_notification_cb()``` changed the code a lot to make certain that the function initTime() gets called only once at the moment of a SNTP synchronization.
 
-2024-10-22: created a second version M5Dial with RFID however with few messages to the Serial Monitor to reduce the use of memory.
-Name of this sketch: ```M5Dial_Timezones_and_M5Echo_with_RFID_few_msgs.ino```.
+2024-10-22: created a version M5Dial with RFID however with few messages to the Serial Monitor to reduce the use of memory.
 
 2024-10-23: totally rebuilt function disp_data(), to eliminate memory leaks.
+
+Copy of the Google Apps Scripts script:
+
+A copy of the Google Apps Script is in subfolder: ```/src/Google_Apps_Scripts```.
+
+Copy of spreadsheet:
+
+I exported to an Microsoft Excel spreadsheet a copy of the Google Sheets Spreadsheet, so one can see the contents and also the formulars that I used.
+The copy is in the subfolder ```/src/Google_Sheets```.
 
 Docs:
 
@@ -188,7 +199,7 @@ If you want a 3D Print design of a stand for the M5Dial, see the post of Cyril E
 - [Stand for M5Dial](https://www.printables.com/model/614079-m5stactk-dial-stand).
   I successfully downloaded the files and sent them to a local electronics shop that has a 3D printing service.
   See the images.
-  
+
 Known Issues:
 
 1) Memory leak:
@@ -203,3 +214,6 @@ With help of MS Copilot varios functions of this sketch were investigated for po
 It happens that the display of the M5Dial goes black at unpredictable moments. On November 19, 2024, I created a post on M5Stack Community. See: [post](https://community.m5stack.com/topic/6998/m5dial-display-goes-black-randomly?_=1732462530058). 50 people read the post. Nobody came with a reaction or advice to create a solution. I also searched
 M5Stack on Github. I did not find what I was looking for. 
 I experienced that after the display went black, the rest of the functionalities of the sketch continued without problem. At times of a SNPTP Time Sync moment I heard the "beep" in the speaker of the M5Echo device. At the same moments I saw online in the Google Sheets spreadsheet a new row with data from the M5Dial being added. When the display went black spontaneously, I experienced that the sketch continued to check for a Button A press and when that button was pressed, the sketch called for a software reset.
+
+
+
