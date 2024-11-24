@@ -114,7 +114,7 @@ in the following map:
 
 M5Dial Debug output:
 
-Because of memory limitations most of the if (my_debug) {...} blocks were removed.
+Because of memory limitations all of the if (my_debug) {...} blocks were removed.
 
 File secret.h:
 
