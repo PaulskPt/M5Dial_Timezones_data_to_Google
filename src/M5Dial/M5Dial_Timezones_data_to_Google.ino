@@ -1,5 +1,5 @@
 /*
-*  M5Dial_Timezones_M5Echo_RFID_data_to_Google.ino
+*  M5Dial_Timezones_data_to_Google.ino
 *  Test sketch for M5Stack M5Dial with 240 x 240 pixels
 *  This sketch:
 *  - displays in sequence seven different timezones;
@@ -69,10 +69,16 @@ char sServerShortName[30];
 // 4-PIN connector type HY2.0-4P
 #define PORT_B_GROVE_OUT_PIN 2
 #define PORT_B_GROVE_IN_PIN  1
-// Set the HOLD pin to a high level (1) during program initialization to maintain the power supply.
-// Otherwise the device will enter the sleep state again. (docs.m5stack.com/en/core/M5Dial)
+// Wake up can be initiated by pressing the "Wake" button or by an IRQ signal triggered periodically by the RTC. 
+// After triggering the wake-up signal, set the HOLD (GPIO46) pin to a high level (1) during program initialization 
+// to maintain the power supply. Otherwise, the device will enter the sleep state again.
+// When there is no USB external power supply, press the RST key to power off. 
+// Alternatively, when there is no USB external power supply, 
+// set HOLD (GPIO46) to 0 during program operation to achieve power off.
+// (docs.m5stack.com/en/core/M5Dial)
 #define PWR_HOLD_OUT_PIN 46  
 
+#define RGB_LED_PIN 21
 
 #define HOURS 24
  // Array to store time sync times for the past 24 hours time_t
@@ -81,9 +87,11 @@ time_t SyncTimes[HOURS][3];
 #define arrSYNCTIME 1
 #define arrDIFF_T   2
 
+#define MAX_DIFF_T 60 // time may be off track for max than 60 seconds
+
 int SyncTimesIndex = 0; // just for test. It should be 0
 
-// bool my_debug = false;
+//bool my_debug = false;
 bool lStart = true;
 bool display_on = true;
 bool sync_notification_triggered_at_start = false;
@@ -93,6 +101,7 @@ bool i_am_asleep = false;
 bool syncIdxRollover = false;
 time_t last_sync_epoch = 0; // see: time_sync_notification_cb()
 time_t time_sync_epoch_at_start = 0;
+time_t  last_sync_time_sent_to_ss = 0;
 bool lastTouchState = false;
 unsigned long lastDebounceTime = 0;
 unsigned int freeHeap = 0;
@@ -227,6 +236,7 @@ void time_sync_notification_cb(struct timeval *tv) {
   // Perform SNTP-related tasks 
   // Get the current time  (very important!)
   time_t currentTime = time(nullptr);
+
   // Convert time_t to GMT struct tm
   struct tm* gmtTime = gmtime(&currentTime);
   uint16_t diff_t;
@@ -259,7 +269,6 @@ void time_sync_notification_cb(struct timeval *tv) {
     if (sync_time == true)
     {
       // If index is 0 check if the sync time at index 23 is not zero
-
       if (SyncTimesIndex == 0) {
         time_t syncTime23 = SyncTimes[HOURS-1][arrSYNCTIME];  // sync time of record with index 23
         if (syncTime23 == 0)
@@ -291,6 +300,7 @@ void time_sync_notification_cb(struct timeval *tv) {
 // End of code suggested by MS CoPilot
 
 void esp_sntp_initialize() {
+  static constexpr const char txt0[] PROGMEM = "esp_sntp_initalize(): ";
   Serial.println(F("initializing SNTP"));
    if (esp_sntp_enabled()) { 
     esp_sntp_stop();  // prevent initialization error
@@ -303,6 +313,18 @@ void esp_sntp_initialize() {
   esp_sntp_init();
   // check the set sync_interval
   uint32_t rcvd_sync_interval_secs = esp_sntp_get_sync_interval();
+  Serial.print(txt0);
+  sntp_sync_mode_t s_mode = esp_sntp_get_sync_mode();
+  char sMode[8];
+  if (s_mode == SNTP_SYNC_MODE_IMMED)
+   strcpy(sMode,"IMMED");
+  else if (s_mode == SNTP_SYNC_MODE_SMOOTH)
+    strcpy(sMode,"SMOOTH");
+  else 
+    strcpy(sMode,"UNKNOWN");
+
+  Serial.printf("SNTP sync mode = SNTP_SYNC_MODE_%s\n", sMode);
+
 }
 
 void setTimezone(void) {
@@ -522,13 +544,27 @@ bool connect_WiFi(void) {
   return ret;
 }
 
-// ToDo: to be changed
-void force_sntp_sync(void )
-{
-  ;
+bool ck_if_time_is_correct(void) {
+  static constexpr const char txt1[] PROGMEM = "last SNTP sync time sent to Google was: ";
+  static constexpr const char txt2[] PROGMEM = ", current time: ";
+  static constexpr const char txt3[] PROGMEM = ". Difference: ";
+  static constexpr const char txt4[] PROGMEM = " more than: ";
+  static constexpr const char txt5[] PROGMEM = "Forcing an update.";
+  bool ret = false;
+  time_t currentTime = time(nullptr);
+  if (last_sync_time_sent_to_ss > 0) {
+    uint16_t diff_t = currentTime - last_sync_time_sent_to_ss;
+    if (diff_t > MAX_DIFF_T) {
+      ret = true;
+      Serial.printf("%s%lu%s%lu%s%lu%s%d\n", \
+        txt1, last_sync_time_sent_to_ss, txt2, currentTime, txt3, txt4, MAX_DIFF_T);
+      Serial.println(txt5);
+    }
+  }
+  return ret;
 }
 
-// Example function to clear the static pool
+// function to clear the static pool
 void clear_http_request_data_pool() {
     memset(http_request_data_pool, 0, sizeof(http_request_data_pool));
 }
@@ -587,6 +623,7 @@ bool handle_request(void) {
   // after adding the data to the SyncTimes array.
   int idx = SyncTimesIndex - 1;
 
+  //last_sync_time_sent_to_ss = SyncTimes[idx][arrSYNCTIME]; // remember last sync time epoch sent to Google
   // Example usage
   http_request_data requestData;
   strcpy(requestData.datetimeStr, prep_vals());
@@ -806,20 +843,30 @@ void send_cmd_to_AtomEcho(void) {
 
 void force_sntp_sync(void) { 
   // sntp_init(); 
-  timeval tv; 
-  tv.tv_sec = 0; 
-  tv.tv_usec = 0; 
-  sntp_sync_time(&tv); // Force immediate synchronization if supported 
+  struct timeval tv; 
+  //tv.tv_sec = 0; 
+  //tv.tv_usec = 0; 
+  sntp_sync_time(&tv);
   Serial.println(F("SNTP synchronization requested"));
+  Serial.printf("sntp_sync_time(&tv) result: tv.tv_sec = %lu, tv.tv_usec = %lu\n", tv.tv_sec, tv.tv_usec);
+  if (tv.tv_sec > 0 || tv.tv_usec > 0) { // Force immediate synchronization if supported 
+      settimeofday(&tv, nullptr);
+  } else {
+      Serial.println(F("forced SNTP time sync failed"));
+  }
   static constexpr const char txt[] PROGMEM = "Sync forced";
   disp_msg(txt, true);
 }
 
 void setup(void) {
+  pinMode(PWR_HOLD_OUT_PIN, OUTPUT);
+  digitalWrite(PWR_HOLD_OUT_PIN, HIGH); 
   auto cfg = M5.config();
   cfg.serial_baudrate = 115200;
-  M5Dial.begin(cfg, false, true);
+  M5Dial.begin(cfg, false, true);  // enableEncoder, enableRFID
+  //M5Dial.Power.setwakeupbutton(PWR_HOLD_OUT_PIN);  // class m5::Power_Class has no member named 'setwakeupbutton'
   M5Dial.Power.begin();
+
   // Initialize the mutex
   mutex = xSemaphoreCreateMutex();
   // Pin settings for communication with M5Dial to receive commands from M5Dial
@@ -828,8 +875,9 @@ void setup(void) {
   digitalWrite(PORT_B_GROVE_OUT_PIN, LOW); // Turn Idle the output pin
   pinMode(PORT_B_GROVE_IN_PIN, INPUT);
   digitalWrite(PORT_B_GROVE_IN_PIN, LOW); // Turn Idle the input pin
-
+  
   Serial.begin(115200);
+
   // Extract the first part of global variable
   // serverName and copy it to the global variable sServerShortName
   createServerShortName();
@@ -951,7 +999,7 @@ void loop() {
         }
         if (display_on) {
           if (i_am_asleep) {
-            M5.Display.wakeup();
+            M5.Display.wakeup(); // also exists M5Dial.Power.reset() or wakeup by WakeupButton (have to be set in setup())
             i_am_asleep = false;
             M5.Display.setBrightness(50);  // 0 - 255
             disp_msg(txts[0], true);
@@ -969,7 +1017,7 @@ void loop() {
               Serial.println(result);
               disp_msg(result, true); 
             }
-            M5.Display.sleep();
+            M5.Display.sleep();  // also exists: M5Dial.Power.lightSleep() and M5Dial.Power.deepSleep()
             i_am_asleep = true;
             M5.Display.setBrightness(0);
             M5Dial.Display.clear(); // M5Dial.Display.fillScreen(TFT_BLACK);  
@@ -983,7 +1031,7 @@ void loop() {
         if (freeHeap <= MIN_FREE_HEAP)
           Serial.printf("%s%s%s%s%lu%s, %s to %s\n", txt0, txts[10], txts[14], txts[15], MIN_FREE_HEAP, txts[13], txts[4], txts[2]);
         disp_msg(txts[2], true); // there is already a wait of 6000 in disp_msg()
-        esp_restart();
+        esp_restart();  // also exists: M5Dial.Power.reset();
       }
       while (WiFi.status() != WL_CONNECTED) { // Check if we're still connected to WiFi
         if (!disp_msg_shown) {
@@ -1013,13 +1061,13 @@ void loop() {
         break;
       disp_msg_shown = false;
     }
-    if (forceSync || sync_time) {
+    forceSync = ck_if_time_is_correct();
+    if (forceSync || sync_time) {  // forceSync: see ck_if_time_is_correct()
       if (forceSync) {
         force_sntp_sync();  // force a sync of time
         forceSync = false;  // reset flag
       }
       if (initTime()) {
-        
         if (set_RTC()) {
           Serial.printf("\n%s%s%s\n", txts[7], txts[8], txts[9]);
           handle_request(); // Send data to Google
