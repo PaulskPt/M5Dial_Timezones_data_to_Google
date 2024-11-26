@@ -522,6 +522,12 @@ bool connect_WiFi(void) {
   return ret;
 }
 
+// ToDo: to be changed
+void force_sntp_sync(void )
+{
+  ;
+}
+
 // Example function to clear the static pool
 void clear_http_request_data_pool() {
     memset(http_request_data_pool, 0, sizeof(http_request_data_pool));
