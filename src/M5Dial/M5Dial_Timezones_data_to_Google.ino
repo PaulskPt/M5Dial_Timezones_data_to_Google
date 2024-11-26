@@ -89,6 +89,8 @@ time_t SyncTimes[HOURS][3];
 
 #define MAX_DIFF_T 60 // time may be off track for max than 60 seconds
 
+#define DISP_STD_BRIGHNESS 50
+
 int SyncTimesIndex = 0; // just for test. It should be 0
 
 //bool my_debug = false;
@@ -519,7 +521,7 @@ void disp_msg(String str, bool clr_at_end_func = false) {
   {
     M5Dial.Display.clear();
   }
-  M5Dial.Display.setBrightness(50); // Restore brightness to normal
+  M5Dial.Display.setBrightness(DISP_STD_BRIGHNESS); // Restore brightness to normal
 }
 
 bool connect_WiFi(void) {
@@ -545,19 +547,31 @@ bool connect_WiFi(void) {
 }
 
 bool ck_if_time_is_correct(void) {
+  static constexpr const char txt0[] PROGMEM = "ck_if_time_is_correct(): ";
   static constexpr const char txt1[] PROGMEM = "last SNTP sync time sent to Google was: ";
   static constexpr const char txt2[] PROGMEM = ", current time: ";
-  static constexpr const char txt3[] PROGMEM = ". Difference: ";
-  static constexpr const char txt4[] PROGMEM = " more than: ";
+  static constexpr const char txt3[] PROGMEM = ". Difference ";
+  static constexpr const char txt4[] PROGMEM = "more than: ";
   static constexpr const char txt5[] PROGMEM = "Forcing an update.";
   bool ret = false;
   time_t currentTime = time(nullptr);
   if (last_sync_time_sent_to_ss > 0) {
     uint16_t diff_t = currentTime - last_sync_time_sent_to_ss;
-    if (diff_t > MAX_DIFF_T) {
+    // Serial.print(txt0);
+    // Serial.print(F("diff_t = "));
+    // Serial.printf("%lu\n", diff_t);
+    if (diff_t > (CONFIG_LWIP_SNTP_UPDATE_DELAY + MAX_DIFF_T)) { // time sync interval + MAX_DIFF_T
       ret = true;
-      Serial.printf("%s%lu%s%lu%s%lu%s%d\n", \
-        txt1, last_sync_time_sent_to_ss, txt2, currentTime, txt3, txt4, MAX_DIFF_T);
+      Serial.print(txt0);
+      Serial.printf("%s%lu%s%lu%s%s%d\n", 
+        txt1, 
+        last_sync_time_sent_to_ss, 
+        txt2, 
+        currentTime, 
+        txt3, 
+        txt4, 
+        CONFIG_LWIP_SNTP_UPDATE_DELAY + MAX_DIFF_T    // time sync interval + MAX_DIFF_T
+      );
       Serial.println(txt5);
     }
   }
@@ -623,7 +637,7 @@ bool handle_request(void) {
   // after adding the data to the SyncTimes array.
   int idx = SyncTimesIndex - 1;
 
-  //last_sync_time_sent_to_ss = SyncTimes[idx][arrSYNCTIME]; // remember last sync time epoch sent to Google
+  last_sync_time_sent_to_ss = SyncTimes[idx][arrSYNCTIME]; // remember last sync time epoch sent to Google
   // Example usage
   http_request_data requestData;
   strcpy(requestData.datetimeStr, prep_vals());
@@ -842,13 +856,13 @@ void send_cmd_to_AtomEcho(void) {
 }
 
 void force_sntp_sync(void) { 
-  // sntp_init(); 
+  static constexpr const char txt1[] PROGMEM = "SNTP synchronization requested";
+  static constexpr const char txt2[] PROGMEM = "sntp_sync_time(&tv) result: tv.tv_sec = ";
+  static constexpr const char txt3[] PROGMEM = ", tv.tv_usec = ";
   struct timeval tv; 
-  //tv.tv_sec = 0; 
-  //tv.tv_usec = 0; 
   sntp_sync_time(&tv);
-  Serial.println(F("SNTP synchronization requested"));
-  Serial.printf("sntp_sync_time(&tv) result: tv.tv_sec = %lu, tv.tv_usec = %lu\n", tv.tv_sec, tv.tv_usec);
+  Serial.println(txt1);
+  Serial.printf("%s%lu%s%lu\n", txt2, tv.tv_sec, txt3, tv.tv_usec);
   if (tv.tv_sec > 0 || tv.tv_usec > 0) { // Force immediate synchronization if supported 
       settimeofday(&tv, nullptr);
   } else {
@@ -886,7 +900,7 @@ void setup(void) {
   Serial.print("\n\n");
   Serial.println(txt2);
   M5Dial.Display.init();
-  M5Dial.Display.setBrightness(50);  // 0-255
+  M5Dial.Display.setBrightness(DISP_STD_BRIGHNESS);  // 0-255
   M5Dial.Display.setRotation(0);
   M5Dial.Display.clear(); 
   M5Dial.Display.setTextColor(TFT_ORANGE, TFT_BLACK);
@@ -1001,7 +1015,7 @@ void loop() {
           if (i_am_asleep) {
             M5.Display.wakeup(); // also exists M5Dial.Power.reset() or wakeup by WakeupButton (have to be set in setup())
             i_am_asleep = false;
-            M5.Display.setBrightness(50);  // 0 - 255
+            M5.Display.setBrightness(DISP_STD_BRIGHNESS);  // 0 - 255
             disp_msg(txts[0], true);
             M5Dial.Display.setTextColor(TFT_ORANGE, TFT_BLACK);
             M5Dial.Display.clear();
