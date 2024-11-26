@@ -1,5 +1,5 @@
 /*
-*  M5Dial_Timezones_data_to_Google.ino
+*  M5Dial_Timezones_M5Echo_RFID_data_to_Google.ino
 *  Test sketch for M5Stack M5Dial with 240 x 240 pixels
 *  This sketch:
 *  - displays in sequence seven different timezones;
@@ -440,7 +440,7 @@ void disp_data(void) {
   if (buttonPressed) return;
 
   // --------------- 1st view ---------------
-  M5Dial.Display.clear(); // M5Dial.Display.clear(TFT_BLACK); ;
+  M5Dial.Display.clear();
   M5Dial.Display.setTextColor(TFT_ORANGE, TFT_BLACK);
   
   if (index1 != nullptr && index2 != nullptr) {
@@ -518,8 +518,8 @@ void disp_msg(String str, bool clr_at_end_func = false) {
   if (clr_at_end_func)
   {
     M5Dial.Display.clear();
-    M5Dial.Display.setBrightness(50); // Restore brightness to normal
   }
+  M5Dial.Display.setBrightness(50); // Restore brightness to normal
 }
 
 bool connect_WiFi(void) {
@@ -780,7 +780,7 @@ bool ck_RFID(void) {
     if (piccType != MFRC522::PICC_TYPE_MIFARE_MINI &&
       piccType != MFRC522::PICC_TYPE_MIFARE_1K &&
       piccType != MFRC522::PICC_TYPE_MIFARE_4K) {
-        M5Dial.Display.clear(); // M5Dial.Display.fillScreen(TFT_BLACK); 
+        M5Dial.Display.clear();
         M5Dial.Display.setTextDatum(middle_center);
         M5Dial.Display.setTextColor(TFT_RED);
         M5Dial.Display.drawString("card not", M5Dial.Display.width() / 2, M5Dial.Display.height() / 2 - 50);
@@ -822,7 +822,7 @@ void start_scrn(void) {
   static constexpr int char_width_in_pixels[] PROGMEM = {16, 12, 12, 14};
   static constexpr const int vert2[] PROGMEM = {0, 60, 90, 120, 150}; 
   int x = 0;
-  M5Dial.Display.clear(); // M5Dial.Display.clear(TFT_BLACK); ;
+  M5Dial.Display.clear();
   M5Dial.Display.setTextColor(TFT_RED, TFT_BLACK);
   for (int i = 0; i < 4; ++i) {
     x = calc_x_offset(txt[i], char_width_in_pixels[i]);
@@ -888,7 +888,7 @@ void setup(void) {
   M5Dial.Display.init();
   M5Dial.Display.setBrightness(50);  // 0-255
   M5Dial.Display.setRotation(0);
-  M5Dial.Display.clear(); // M5Dial.Display.fillScreen(TFT_BLACK); 
+  M5Dial.Display.clear(); 
   M5Dial.Display.setTextColor(TFT_ORANGE, TFT_BLACK);
   M5Dial.Display.setColorDepth(1); // mono color
   M5Dial.Display.setFont(&fonts::FreeSans12pt7b);
@@ -923,7 +923,7 @@ void setup(void) {
     zone_idx = 0; // needed to set here. Is needed in setTimezone()
     setTimezone();
   }
-  M5Dial.Display.clear(); // M5Dial.Display.clear(TFT_BLACK);
+  M5Dial.Display.clear();
 }
 
 void loop() {
@@ -1004,7 +1004,7 @@ void loop() {
             M5.Display.setBrightness(50);  // 0 - 255
             disp_msg(txts[0], true);
             M5Dial.Display.setTextColor(TFT_ORANGE, TFT_BLACK);
-            M5Dial.Display.clear(); // M5Dial.Display.clear(TFT_BLACK);
+            M5Dial.Display.clear();
           }
         } else {
           if (!i_am_asleep) {
@@ -1020,7 +1020,7 @@ void loop() {
             M5.Display.sleep();  // also exists: M5Dial.Power.lightSleep() and M5Dial.Power.deepSleep()
             i_am_asleep = true;
             M5.Display.setBrightness(0);
-            M5Dial.Display.clear(); // M5Dial.Display.fillScreen(TFT_BLACK);  
+            M5Dial.Display.clear(); 
           }
         }
       }
