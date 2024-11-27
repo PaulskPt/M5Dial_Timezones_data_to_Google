@@ -230,7 +230,7 @@ With help of MS Copilot varios functions of this sketch were investigated for po
 It happens that the display of the M5Dial goes black at unpredictable moments. When this happens, long press the display button. This will force a software reset. On November 19, 2024, I created a post on M5Stack Community. See: [post](https://community.m5stack.com/topic/6998/m5dial-display-goes-black-randomly?_=1732462530058). 50 people read the post. Nobody came with a reaction or advice to create a solution. I also searched
 M5Stack on Github. I did not find what I was looking for. 
 I experienced that after the display went black, the rest of the functionalities of the sketch continued without problem. At times of a SNPTP Time Sync moment I heard the "beep" in the speaker of the M5Echo device. At the same moments I saw online in the Google Sheets spreadsheet a new row with data from the M5Dial being added. When the display went black spontaneously, I experienced that the sketch continued to check for a Button A press and when that button was pressed, the sketch called for a software reset.
-The inversing of the background color as mentioned above under 2 a) happened when the last data sent to the spreadsheet had a free heap value of 250728 bytes.
+The inversing of the background color as mentioned above under 2 b) happened when the last data sent to the spreadsheet had a free heap value of 250728 bytes.
 
 
 
