@@ -186,9 +186,10 @@ or go to the subfolder ```/src/Google_Sheets/```. The sheet contains 1013 lines 
 Docs:
 
 ```
-Monitor_output.txt. [Link](https://github.com/PaulskPt/M5Dial_Timezones_data_to_Google/blob/main/docs/Monitor_output.txt).
+Monitor_output.txt.
 
 ```
+[Link](https://github.com/PaulskPt/M5Dial_Timezones_data_to_Google/blob/main/docs/Monitor_output.txt)
 
 Images: 
 
