@@ -216,11 +216,16 @@ In 24 spreadsheet entries the FreeHeap memory sank until 261816 bytes. This is a
 Not only loss of FreeHeap memory occurs, there occurred also moments that there was a "recovery" (gain) of 9,400 bytes!
 With help of MS Copilot varios functions of this sketch were investigated for possible memory leakage. Various functions were changed to minimize memory leakage.
 
-2) Display goes black:
+2) Display anomalies:
+   a) goes black;
+   b) background inverse & text color change [image](https://imgur.com/a/m5stack-m5dial-0VMFZOe)
+   c) artifacts [image](https://imgur.com/q810HSV), [video](https://imgur.com/bOArygq);
+   d) text on the display fading out;
 
 It happens that the display of the M5Dial goes black at unpredictable moments. When this happens, long press the display button. This will force a software reset. On November 19, 2024, I created a post on M5Stack Community. See: [post](https://community.m5stack.com/topic/6998/m5dial-display-goes-black-randomly?_=1732462530058). 50 people read the post. Nobody came with a reaction or advice to create a solution. I also searched
 M5Stack on Github. I did not find what I was looking for. 
 I experienced that after the display went black, the rest of the functionalities of the sketch continued without problem. At times of a SNPTP Time Sync moment I heard the "beep" in the speaker of the M5Echo device. At the same moments I saw online in the Google Sheets spreadsheet a new row with data from the M5Dial being added. When the display went black spontaneously, I experienced that the sketch continued to check for a Button A press and when that button was pressed, the sketch called for a software reset.
+The inversing of the background color as mentioned above under 2 a) happened when the last data sent to the spreadsheet had a free heap value of 250728 bytes.
 
 
 
