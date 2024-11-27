@@ -169,7 +169,7 @@ Updates:
 
 2024-10-22: created a version M5Dial with RFID however with few messages to the Serial Monitor to reduce the use of memory.
 
-2024-10-23: totally rebuilt function disp_data(), to eliminate memory leaks.
+2024-10-23: totally rebuilt function disp_data(), to reduce memory leaks.
 
 2024-11-17 Added functionality using FreeRTOS semaphore signalization, using boolean flags ```sntp_busy```  and ```handle_requestBusy```, using also a SemaphoreHandle_t named ```mutex```, to control and safeguard the execution of important functions: the SNTP sync time callback function ```time_sync_notification_cb()``` and the function ```handle_request()```. This solved the problem of doubling of data lines and index number skipovers in the Google Sheets spreadsheet.
 
