@@ -52,16 +52,19 @@ The following data will be sent:
 6) value of FreeHeap memory in bytes;
 7) name of the device that sent the data, in our case "M5Dial".
 ```
-To acomplish this, the data is first sent through a ```HTML POST``` request to a Google Apps Scripts script which analyses the data and then adds the data to the Google Sheets spreadsheet. Average it takes 5 seconds between the moment the sketch sends the HTT POST request and the moment that the data sent appears in the spreadsheet.
+To acomplish this, the data is first sent through a ```HTML POST``` request to a Google Apps Scripts script which analyses the data and then adds the data to the Google Sheets spreadsheet. Average it takes 5 seconds between the moment the sketch sends the HTTP POST request and the moment that the data sent appears in the spreadsheet.
 
 Prerequesits:
-To be able to successfully send data to a Google Sheets spreadsheet directly (not through a "man-in-th-middle" service like "Pushingbox") one needs to have:
+To be able to successfully send data to a Google Sheets spreadsheet directly (not through a "man-in-the-middle" service like "Pushingbox") one needs to have:
 - a Google account;
 - a Google Cloud account; (note: that until this moment I did not have to pay Google any fees for these services).
 - a Google Cloud project created. The name of my project is: ```My data archive```;
 - in Google Cloud create service account(s) and API key(s). The API key one needs to copy to the file ```secret.h```, variable: ```SECRET_GOOGLE_API_KEY```.
-- in Google Apps Scripts, create a Script. Mine I named: ```M5Dial_Timezones```. Inside this development environment I created a script with the name: ```Code.gs```. For this script I created a deployment. Every time you make changes to this script, you need to create a new deployment. Old deployments one can put to "archive". Then, by clicking in the right up part of the screen on the blue button "Deployment", one creates a new deployment. Next one needs to copy the URL of the ```Web App```. This link one needs to copy to the file ```secret.h``` into the variable: ```SECRET_GOOGLE_APPS_SCRIPT_URL```. In the page "manage deployments" do not forget to select "ME (\<your GMail e-mail address\>)". Also select the next item: access range, select: "Anyone".
+- in Google Apps Scripts, create a Script. Mine I named: ```M5Dial_Timezones```. Inside this development environment I created a script with the name: ```Code.gs```. For this script I created a ```deployment```. Every time you make changes to this script, you need to create a ```new deployment```. Old deployments one can put to "archive". Then, by clicking in the right up part of the screen on the blue button "Deployment", one creates a new deployment. Next one needs to copy the URL of the ```Web App```. The complete link (starting with "https" and ending with "/exec") one needs to copy to the file ```secret.h``` into the variable: ```SECRET_GOOGLE_APPS_SCRIPT_URL```. In the page "manage deployments" do not forget to select "ME (\<your GMail e-mail address\>)". Also select the next item: access range, select: ```Anyone```. The Web app link has the following format:
+  ```https://script.google.com/macros/s/<ID_of_your_deployment_ID>/exec```
 - in your Google Drive a spreadsheet. The name I used for this spreadsheet is: ```M5Dial_Timezones_SNTP_sync_times```.
+  Name the first 7 columns: "date", "sync_time", "diff_t", "index", "display_on", "f_heap" and "id". The Google Apps Script adds a datetime value in the next colum (H) which I gave the name "script_date". Further I also added a column (I) named "mem leak (bytes)" and a colum (J) that I gave the name "notes"
+See: [image](https://github.com/PaulskPt/M5Dial_Timezones_data_to_Google/blob/main/images/Google_sheets_sheet_entries.png).
 
 Note that it is not easy to perform the necessary steps in Google Cloud, to create a API service account; to create an API Key and set restrictions for this key.
 It took me a while to get everything right, however Google has excellent documentation. As far as I remember for this project we don't need to through OAUTH 2 identification.
@@ -166,7 +169,7 @@ Updates:
 
 2024-10-22: created a version M5Dial with RFID however with few messages to the Serial Monitor to reduce the use of memory.
 
-2024-10-23: totally rebuilt function disp_data(), to eliminate memory leaks.
+2024-10-23: totally rebuilt function disp_data(), to reduce memory leaks.
 
 2024-11-17 Added functionality using FreeRTOS semaphore signalization, using boolean flags ```sntp_busy```  and ```handle_requestBusy```, using also a SemaphoreHandle_t named ```mutex```, to control and safeguard the execution of important functions: the SNTP sync time callback function ```time_sync_notification_cb()``` and the function ```handle_request()```. This solved the problem of doubling of data lines and index number skipovers in the Google Sheets spreadsheet.
 
@@ -177,14 +180,16 @@ A copy of the Google Apps Script is in subfolder: ```/src/Google_Apps_Scripts```
 Copy of spreadsheet:
 
 I exported to an Microsoft Excel spreadsheet a copy of the Google Sheets Spreadsheet, so one can see the contents and also the formulars that I used.
-The copy is in the subfolder ```/src/Google_Sheets```.
+To download click this link: [spreadsheet example](https://github.com/PaulskPt/M5Dial_Timezones_data_to_Google/tree/main/src/Google_Sheets),
+or go to the subfolder ```/src/Google_Sheets/```. The sheet contains 1013 lines of test data.
 
 Docs:
 
 ```
-Monitor_output.txt
+Monitor_output.txt.
 
 ```
+[Link](https://github.com/PaulskPt/M5Dial_Timezones_data_to_Google/blob/main/docs/Monitor_output.txt)
 
 Images: 
 
