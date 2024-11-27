@@ -217,10 +217,15 @@ Not only loss of FreeHeap memory occurs, there occurred also moments that there 
 With help of MS Copilot varios functions of this sketch were investigated for possible memory leakage. Various functions were changed to minimize memory leakage.
 
 2) Display anomalies:
+   
    a) goes black;
-   b) background inverse & text color change [image](https://imgur.com/a/m5stack-m5dial-0VMFZOe)
+   
+   b) background inverse & text color change [image](https://imgur.com/a/m5stack-m5dial-0VMFZOe);
+   
    c) artifacts [image](https://imgur.com/q810HSV), [video](https://imgur.com/bOArygq);
-   d) text on the display fading out;
+   
+   d) text on the display fading out.
+
 
 It happens that the display of the M5Dial goes black at unpredictable moments. When this happens, long press the display button. This will force a software reset. On November 19, 2024, I created a post on M5Stack Community. See: [post](https://community.m5stack.com/topic/6998/m5dial-display-goes-black-randomly?_=1732462530058). 50 people read the post. Nobody came with a reaction or advice to create a solution. I also searched
 M5Stack on Github. I did not find what I was looking for. 
