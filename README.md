@@ -181,7 +181,7 @@ Copy of spreadsheet:
 
 I exported to an Microsoft Excel spreadsheet a copy of the Google Sheets Spreadsheet, so one can see the contents and also the formulars that I used.
 To download click this link: [spreadsheet example](https://github.com/PaulskPt/M5Dial_Timezones_data_to_Google/tree/main/src/Google_Sheets),
-or go to the subfolder ```/src/Google_Sheets/```. The sheet contains about 900 lines of test data.
+or go to the subfolder ```/src/Google_Sheets/```. The sheet contains 1013 lines of test data.
 
 Docs:
 
