@@ -55,7 +55,7 @@ The following data will be sent:
 To acomplish this, the data is first sent through a ```HTML POST``` request to a Google Apps Scripts script which analyses the data and then adds the data to the Google Sheets spreadsheet. Average it takes 5 seconds between the moment the sketch sends the HTTP POST request and the moment that the data sent appears in the spreadsheet.
 
 Prerequesits:
-To be able to successfully send data to a Google Sheets spreadsheet directly (not through a "man-in-th-middle" service like "Pushingbox") one needs to have:
+To be able to successfully send data to a Google Sheets spreadsheet directly (not through a "man-in-the-middle" service like "Pushingbox") one needs to have:
 - a Google account;
 - a Google Cloud account; (note: that until this moment I did not have to pay Google any fees for these services).
 - a Google Cloud project created. The name of my project is: ```My data archive```;
